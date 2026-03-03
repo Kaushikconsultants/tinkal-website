@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tinkal — Digital Transformation Agency | Website, Automation, AI & Growth</title>
+  <meta name="description" content="Tinkal is a full-stack digital agency specializing in Shopify stores, AI calling agents, business automation, product photography, Zoho setup, WhatsApp marketing and growth strategy. Starting ₹999/$10."/>
+  <meta name="keywords" content="digital agency India, Shopify store, business automation, AI calling agent, WhatsApp marketing, Zoho setup, product photography, ecommerce setup"/>
+  <link rel="icon" type="image/png" href="https://www.genspark.ai/api/files/s/k0PaGPv7"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="https://www.genspark.ai/api/files/s/k0PaGPv7" alt="Tinkal Logo" onerror="this.style.display='none'"/>
+    TINKAL
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Free Audit →</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ══ MOBILE MENU ═════════════════════════════════════════ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-close" id="mobileClose">×</div>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" style="background:var(--navy);color:#fff;padding:14px 32px;border-radius:10px;font-size:18px;">Get Free Audit →</a>
+</div>
+
+<!-- ══ HERO ════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-dot-grid"></div>
+  <div class="hero-content">
+    <div class="hero-left" data-aos="fade-right">
+      <div class="hero-tag">Digital Transformation Agency</div>
+      <h1 class="hero-h1">We Don't Sell Services. We Build Your <span>Growth Engine.</span></h1>
+      <p class="hero-sub">From <strong>₹999 / $10</strong> — Custom solutions for small & medium businesses worldwide. Automation · AI · Web · Creative · Marketing.</p>
+      <div class="hero-btns">
+        <a href="contact.html" class="btn-primary">Start Your Project <i class="fas fa-arrow-right"></i></a>
+        <a href="projects.html" class="btn-outline">See Our Work <i class="fas fa-external-link-alt"></i></a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><i class="fas fa-globe"></i> India &amp; Global</div>
+        <div class="trust-item"><i class="fas fa-rupee-sign"></i> From ₹999/$10</div>
+        <div class="trust-item"><i class="fas fa-building"></i> SMB Specialists</div>
+        <div class="trust-item"><i class="fas fa-headset"></i> 24/7 Support</div>
+      </div>
+    </div>
+    <div class="hero-right" data-aos="fade-left" data-aos-delay="200">
+      <div id="hero-3d-container" style="width:100%;height:480px;"></div>
+    </div>
+  </div>
+  <!-- Scroll indicator -->
+  <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:10;text-align:center;animation:bounce 2s infinite;">
+    <div style="width:28px;height:44px;border:2px solid var(--navy);border-radius:14px;margin:0 auto;display:flex;justify-content:center;padding-top:6px;"><div style="width:4px;height:10px;background:var(--blue);border-radius:2px;animation:scroll-dot 2s infinite;"></div></div>
+  </div>
+</section>
+
+<style>
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-8px)} }
+@keyframes scroll-dot { 0%{transform:translateY(0);opacity:1} 100%{transform:translateY(12px);opacity:0} }
+.pillar-badge { font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;background:rgba(0,102,255,0.08);padding:5px 12px;border-radius:20px;border:1px solid rgba(0,102,255,0.15); }
+</style>
+
+<!-- ══ MARQUEE ═══════════════════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item">Shopify Stores</div>
+    <div class="marquee-item">Product Photography</div>
+    <div class="marquee-item">AI Calling Agents</div>
+    <div class="marquee-item">Business Automation</div>
+    <div class="marquee-item">WhatsApp Marketing</div>
+    <div class="marquee-item">Zoho Setup</div>
+    <div class="marquee-item">3D Websites</div>
+    <div class="marquee-item">Logo Design</div>
+    <div class="marquee-item">RCS Marketing</div>
+    <div class="marquee-item">Amazon Setup</div>
+    <div class="marquee-item">RTO Reduction</div>
+    <div class="marquee-item">Custom API</div>
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-item">Shopify Stores</div>
+    <div class="marquee-item">Product Photography</div>
+    <div class="marquee-item">AI Calling Agents</div>
+    <div class="marquee-item">Business Automation</div>
+    <div class="marquee-item">WhatsApp Marketing</div>
+    <div class="marquee-item">Zoho Setup</div>
+    <div class="marquee-item">3D Websites</div>
+    <div class="marquee-item">Logo Design</div>
+    <div class="marquee-item">RCS Marketing</div>
+    <div class="marquee-item">Amazon Setup</div>
+    <div class="marquee-item">RTO Reduction</div>
+    <div class="marquee-item">Custom API</div>
+  </div>
+</div>
+
+<!-- ══ PROBLEM / SOLUTION ═══════════════════════════════════ -->
+<section class="section problem-section">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:16px;">
+      <span class="section-tag"><i class="fas fa-lightbulb"></i> The Problem We Solve</span>
+    </div>
+    <h2 class="section-h2 text-center">Fragmented Tools. <span>Tinkal Unifies It All.</span></h2>
+    <p class="section-sub text-center" style="margin:0 auto 60px;">Businesses waste time and money managing 5+ agencies. We are your single digital partner for everything.</p>
+    <div class="problem-grid">
+      <div data-aos="fade-right">
+        <div class="problem-title red"><i class="fas fa-exclamation-triangle"></i> Without Tinkal</div>
+        <div class="issue-item"><i class="fas fa-times-circle"></i><p>5+ disconnected agencies — marketing, design, web, automation all siloed</p></div>
+        <div class="issue-item"><i class="fas fa-times-circle"></i><p>Off-the-shelf tools force you to change your workflow to fit their limitations</p></div>
+        <div class="issue-item"><i class="fas fa-times-circle"></i><p>Manual processes drain your team, raise errors, and destroy profit margins</p></div>
+        <div class="issue-item"><i class="fas fa-times-circle"></i><p>High RTO rates, poor delivery setup, and no strategy to reduce returns</p></div>
+        <div class="issue-item"><i class="fas fa-times-circle"></i><p>No AI or automation — competitors are 10x more efficient than you</p></div>
+      </div>
+      <div class="vs-divider" data-aos="zoom-in">
+        <div class="vs-badge">VS</div>
+      </div>
+      <div data-aos="fade-left">
+        <div class="problem-title blue"><i class="fas fa-check-circle"></i> With Tinkal</div>
+        <div class="solution-item"><i class="fas fa-check-circle"></i><p>One partner for web, automation, AI, creative, and marketing — unified</p></div>
+        <div class="solution-item"><i class="fas fa-check-circle"></i><p>Custom-built solutions designed around exactly how your business works</p></div>
+        <div class="solution-item"><i class="fas fa-check-circle"></i><p>Zero-touch automations free your team to focus on growth, not admin</p></div>
+        <div class="solution-item"><i class="fas fa-check-circle"></i><p>Smart delivery aggregator setup, WhatsApp RTO recovery, &amp; cost reduction</p></div>
+        <div class="solution-item"><i class="fas fa-check-circle"></i><p>AI agents, chatbots &amp; calling bots running 24/7 to close sales for you</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PILLARS ════════════════════════════════════════════════ -->
+<section class="section pillars-section" id="services">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-tag"><i class="fas fa-th-large"></i> Our Capabilities</span>
+      <h2 class="section-h2 text-center">One Partner. <span>Infinite Capabilities.</span></h2>
+      <p class="section-sub text-center">We cover the four pillars of modern business scaling — all under one roof.</p>
+    </div>
+    <div class="pillars-grid" style="margin-top:56px;">
+      <div class="pillar-card p1" data-aos="fade-up" data-aos-delay="0" onclick="window.location='services.html?cat=tech'">
+        <div class="pillar-icon"><i class="fas fa-code"></i></div>
+        <div class="pillar-title">Tech &amp; Engineering</div>
+        <div class="pillar-sub">Custom websites, Shopify stores, and digital infrastructure built exactly for your needs.</div>
+        <div class="pillar-services">
+          <div class="pillar-service-tag">Shopify + Custom Theme Stores</div>
+          <div class="pillar-service-tag">3D Dynamic Websites</div>
+          <div class="pillar-service-tag">Custom API Integration</div>
+        </div>
+        <a href="services.html" class="pillar-link">Explore <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="pillar-card p2" data-aos="fade-up" data-aos-delay="100" onclick="window.location='services.html?cat=ai'">
+        <div class="pillar-icon"><i class="fas fa-robot"></i></div>
+        <div class="pillar-title">Automation &amp; AI</div>
+        <div class="pillar-sub">Put your business on autopilot with intelligent agents and zero-touch workflows.</div>
+        <div class="pillar-services">
+          <div class="pillar-service-tag">AI Calling Agents</div>
+          <div class="pillar-service-tag">Business Automations</div>
+          <div class="pillar-service-tag">Zoho Full Setup</div>
+        </div>
+        <a href="services.html" class="pillar-link">Explore <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="pillar-card p3" data-aos="fade-up" data-aos-delay="200" onclick="window.location='services.html?cat=creative'">
+        <div class="pillar-icon"><i class="fas fa-pen-nib"></i></div>
+        <div class="pillar-title">Creative &amp; Production</div>
+        <div class="pillar-sub">Premium brand visuals, product photography, and 3D animations that convert.</div>
+        <div class="pillar-services">
+          <div class="pillar-service-tag">Product Photography</div>
+          <div class="pillar-service-tag">Logo + Animation</div>
+          <div class="pillar-service-tag">3D Banners &amp; Hero Sections</div>
+        </div>
+        <a href="services.html" class="pillar-link">Explore <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="pillar-card p4" data-aos="fade-up" data-aos-delay="300" onclick="window.location='services.html?cat=growth'">
+        <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="pillar-title">Growth &amp; Marketing</div>
+        <div class="pillar-sub">Data-driven acquisition, omnichannel retention, and strategy to capture market share.</div>
+        <div class="pillar-services">
+          <div class="pillar-service-tag">WhatsApp &amp; RCS Marketing</div>
+          <div class="pillar-service-tag">Amazon / Meesho Setup</div>
+          <div class="pillar-service-tag">RTO Reduction Strategy</div>
+        </div>
+        <a href="services.html" class="pillar-link">Explore <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ═════════════════════════════════════════════════ -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item" data-aos="zoom-in">
+      <div class="stat-num counter" data-target="500" data-suffix="+">0+</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+      <div class="stat-num counter" data-target="16" data-suffix="+">0+</div>
+      <div class="stat-label">Service Types</div>
+    </div>
+    <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+      <div class="stat-num" style="font-size:36px;line-height:1;margin-bottom:8px;color:#fff;">🌍</div>
+      <div class="stat-label">India &amp; Global Clients</div>
+    </div>
+    <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+      <div class="stat-num" style="font-size:32px;line-height:1;margin-bottom:8px;">₹999</div>
+      <div class="stat-label">Starting Price</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROCESS ════════════════════════════════════════════════ -->
+<section class="section process-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-tag"><i class="fas fa-route"></i> The Tinkal Approach</span>
+      <h2 class="section-h2 text-center">Different Ideas. <span>Better Economics.</span></h2>
+      <p class="section-sub text-center">Our proven 3-step process from problem to deployed solution.</p>
+    </div>
+    <div class="process-grid" style="margin-top:56px;">
+      <div class="process-line"></div>
+      <div class="process-card" data-aos="fade-up">
+        <div class="process-num">01</div>
+        <div class="process-icon"><i class="fas fa-search"></i></div>
+        <div class="process-title">The Audit</div>
+        <div class="process-desc">Tell us your friction points. We analyze your current tech stack, workflows, and operational bottlenecks to find hidden revenue leaks.</div>
+      </div>
+      <div class="process-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="process-num">02</div>
+        <div class="process-icon"><i class="fas fa-drafting-compass"></i></div>
+        <div class="process-title">The Blueprint</div>
+        <div class="process-desc">We design a unique, cost-effective solution combining custom code, AI agents, and automated workflows — no bloat, no fluff.</div>
+      </div>
+      <div class="process-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="process-num">03</div>
+        <div class="process-icon"><i class="fas fa-rocket"></i></div>
+        <div class="process-title">The Deployment</div>
+        <div class="process-desc">We build, test, design, and launch your complete solution — ensuring a seamless go-live with ongoing support and optimization.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES SCROLL PREVIEW ═══════════════════════════════ -->
+<section class="section services-preview">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-tag"><i class="fas fa-th"></i> What We Do</span>
+      <h2 class="section-h2 text-center">16 Services. <span>One Agency.</span></h2>
+      <p class="section-sub text-center">Scroll through our full range of services →</p>
+    </div>
+  </div>
+  <div class="services-scroll-wrap">
+    <div class="services-scroll-track" id="servicesTrack">
+      <!-- Cards injected here by JS, or fallback static -->
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-camera"></i></div><div class="smc-title">Product Photography</div><div class="smc-desc">Professional ecommerce product shoots that elevate brand trust.</div><span class="smc-price">From ₹999</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fab fa-shopify"></i></div><div class="smc-title">Shopify Store</div><div class="smc-desc">High-converting custom theme Shopify stores for B2C &amp; B2B.</div><span class="smc-price">From ₹4,999</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-cube"></i></div><div class="smc-title">3D Dynamic Website</div><div class="smc-desc">Immersive 3D animated websites that leave a lasting impression.</div><span class="smc-price">From ₹7,999</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-headset"></i></div><div class="smc-title">AI Calling Agents</div><div class="smc-desc">24/7 voice AI agents that qualify leads and close sales automatically.</div><span class="smc-price">Custom Pricing</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-cogs"></i></div><div class="smc-title">Business Automation</div><div class="smc-desc">Zero-touch workflows using n8n, Zoho &amp; custom API bridges.</div><span class="smc-price">From ₹2,999</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-magic"></i></div><div class="smc-title">Logo + Animation</div><div class="smc-desc">Animated logo creation and brand identity design that stands out.</div><span class="smc-price">From ₹999</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fab fa-whatsapp"></i></div><div class="smc-title">WhatsApp Marketing</div><div class="smc-desc">Automated WhatsApp campaigns with 98% open rates for your brand.</div><span class="smc-price">From ₹1,499</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-box"></i></div><div class="smc-title">Amazon / Meesho Setup</div><div class="smc-desc">Full ecommerce channel setup &amp; optimization on Amazon, Meesho, FB.</div><span class="smc-price">From ₹2,499</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-project-diagram"></i></div><div class="smc-title">Zoho Full Setup</div><div class="smc-desc">Zoho Books, Inventory, CRM, Creator — fully customized for your ops.</div><span class="smc-price">From ₹3,999</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-truck"></i></div><div class="smc-title">RTO Reduction Strategy</div><div class="smc-desc">Reduce return-to-origin rates with smart delivery aggregator setup.</div><span class="smc-price">Consulting</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-paint-brush"></i></div><div class="smc-title">3D Banners &amp; Graphics</div><div class="smc-desc">Stunning 3D hero sections, banners, and animated creatives.</div><span class="smc-price">From ₹1,499</span></div>
+      <div class="service-mini-card"><div class="smc-icon"><i class="fas fa-network-wired"></i></div><div class="smc-title">Custom API Integration</div><div class="smc-desc">Connect any software — Shopify, ERP, CRM, logistics — into one brain.</div><span class="smc-price">Custom Pricing</span></div>
+    </div>
+  </div>
+  <div class="services-cta-row">
+    <a href="services.html" class="btn-primary" style="display:inline-flex;">View All 16 Services <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ══ CLIENT REVIEWS ══════════════════════════════════════ -->
+<section class="section reviews-section" id="reviews">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-tag"><i class="fas fa-star"></i> Client Reviews</span>
+      <h2 class="section-h2 text-center">What Our <span>Clients Say</span></h2>
+      <p class="section-sub text-center">Real results from real businesses — India and worldwide.</p>
+    </div>
+    <div class="reviews-grid" id="homeReviewsGrid" style="margin-top:48px;">
+      <div style="grid-column:1/-1;text-align:center;padding:40px;"><i class="fas fa-circle-notch fa-spin" style="color:var(--blue);font-size:28px;"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURED PROJECTS ═══════════════════════════════════ -->
+<section class="section projects-preview" id="work">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="section-tag"><i class="fas fa-folder-open"></i> Our Work</span>
+      <h2 class="section-h2 text-center">Featured <span>Projects</span></h2>
+      <p class="section-sub text-center">A glimpse of the solutions we've delivered for our clients.</p>
+    </div>
+    <div class="projects-grid" id="homeProjectsGrid" style="margin-top:48px;">
+      <div style="grid-column:1/-1;text-align:center;padding:40px;"><i class="fas fa-circle-notch fa-spin" style="color:var(--blue);font-size:28px;"></i></div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="projects.html" class="btn-primary" style="display:inline-flex;">View All Projects <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECT MODAL ════════════════════════════════════════ -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div id="modalTags" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;"></div>
+        <h2 id="modalTitle" style="font-family:var(--font-head);font-weight:700;font-size:24px;color:var(--navy);"></h2>
+      </div>
+      <button class="modal-close" onclick="closeProjectModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="modalImgWrap" class="modal-img-carousel"></div>
+    <div class="modal-body">
+      <p id="modalDesc" style="font-size:16px;color:var(--text2);line-height:1.7;margin-bottom:16px;"></p>
+      <div class="modal-section-title">The Problem</div>
+      <p class="modal-section-text" id="modalProblem"></p>
+      <div class="modal-section-title">Our Solution</div>
+      <p class="modal-section-text" id="modalSolution"></p>
+      <div class="modal-section-title">The Result</div>
+      <p class="modal-section-text" id="modalResult"></p>
+      <a href="contact.html" class="btn-primary" style="display:inline-flex;margin-top:24px;">Start a Similar Project <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PRICING TEASER ══════════════════════════════════════ -->
+<section class="section pricing-section">
+  <div class="section-inner">
+    <span class="section-tag"><i class="fas fa-tags"></i> Pricing</span>
+    <div class="pricing-inner">
+      <div data-aos="fade-right">
+        <h2 class="section-h2">Premium Quality. <span>Startup-Friendly Pricing.</span></h2>
+        <div class="pricing-badge">
+          <i class="fas fa-rupee-sign"></i> 999 <sub>/ starts from</sub>
+          &nbsp;|&nbsp; $10
+        </div>
+        <p class="pricing-note">Final cost depends on scope and complexity of your project. We provide a detailed quote after understanding your needs — no hidden charges, no surprises.</p>
+        <div class="pricing-features">
+          <div class="pricing-feature"><i class="fas fa-check-circle"></i> Free initial consultation &amp; audit</div>
+          <div class="pricing-feature"><i class="fas fa-check-circle"></i> Transparent, itemized pricing</div>
+          <div class="pricing-feature"><i class="fas fa-check-circle"></i> Milestone-based payments</div>
+          <div class="pricing-feature"><i class="fas fa-check-circle"></i> Post-launch support included</div>
+          <div class="pricing-feature"><i class="fas fa-check-circle"></i> Both INR &amp; USD accepted</div>
+        </div>
+        <a href="contact.html" class="btn-primary" style="display:inline-flex;margin-top:28px;">Get Free Quote <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div data-aos="fade-left" data-aos-delay="100">
+        <div class="pricing-sample-cards">
+          <div class="pricing-sample"><span class="pricing-sample-name">Logo + Animation</span><span class="pricing-sample-price">₹999+</span></div>
+          <div class="pricing-sample"><span class="pricing-sample-name">Product Photography</span><span class="pricing-sample-price">₹999+</span></div>
+          <div class="pricing-sample"><span class="pricing-sample-name">Informational Website</span><span class="pricing-sample-price">₹2,999+</span></div>
+          <div class="pricing-sample"><span class="pricing-sample-name">Shopify Store</span><span class="pricing-sample-price">₹4,999+</span></div>
+          <div class="pricing-sample"><span class="pricing-sample-name">Business Automation</span><span class="pricing-sample-price">₹2,999+</span></div>
+          <div class="pricing-sample"><span class="pricing-sample-name">AI Calling Agent</span><span class="pricing-sample-price">Custom</span></div>
+          <div class="pricing-sample"><span class="pricing-sample-name">WhatsApp Marketing</span><span class="pricing-sample-price">₹1,499+/mo</span></div>
+        </div>
+        <p style="font-size:13px;color:var(--text2);margin-top:16px;font-style:italic;"><i class="fas fa-info-circle" style="color:var(--blue);"></i> All prices are starting points. Complex projects are custom quoted after a free discovery call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BANNER ══════════════════════════════════════════ -->
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2>Ready to Transform Your Business?</h2>
+    <p>Tell us your biggest operational challenge. We'll architect the solution.</p>
+    <form class="cta-banner-form" id="ctaBannerForm">
+      <input class="cta-input" id="ctaName" name="from_name" type="text" placeholder="Your Name" required/>
+      <input class="cta-input" id="ctaEmail" name="from_email" type="email" placeholder="Email Address" required/>
+      <input class="cta-input" id="ctaPhone" name="phone" type="tel" placeholder="Phone / WhatsApp"/>
+      <button type="submit" class="btn-white">Get Free Audit →</button>
+    </form>
+    <p style="color:rgba(255,255,255,0.4);font-size:13px;">Or <a href="contact.html" style="color:var(--cyan);">fill the detailed form →</a></p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">
+          <img src="https://www.genspark.ai/api/files/s/k0PaGPv7" alt="Tinkal" onerror="this.style.display='none'"/>
+          TINKAL
+        </div>
+        <p class="footer-tagline">Your complete digital &amp; operational ecosystem. From ₹999, we build growth engines for SMBs worldwide.</p>
+        <a href="mailto:tinkalsolutions@gmail.com" class="footer-contact-item"><i class="fas fa-envelope"></i>tinkalsolutions@gmail.com</a>
+        <a href="tel:+919306817689" class="footer-contact-item"><i class="fas fa-phone"></i>+91 93068 17689</a>
+        <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="footer-contact-item" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp Us</a>
+        <a href="https://tinkal.us.cc" class="footer-contact-item"><i class="fas fa-globe"></i>tinkal.us.cc</a>
+      </div>
+      <div>
+        <div class="footer-heading">Navigation</div>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="services.html" class="footer-link">Services</a>
+        <a href="projects.html" class="footer-link">Projects</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <div>
+        <div class="footer-heading">Services</div>
+        <a href="services.html" class="footer-link">Shopify Stores</a>
+        <a href="services.html" class="footer-link">AI Calling Agents</a>
+        <a href="services.html" class="footer-link">Business Automation</a>
+        <a href="services.html" class="footer-link">WhatsApp Marketing</a>
+        <a href="services.html" class="footer-link">Product Photography</a>
+        <a href="services.html" class="footer-link">Zoho Setup</a>
+      </div>
+      <div>
+        <div class="footer-heading">Connect</div>
+        <a href="contact.html" class="footer-link">Get Free Audit</a>
+        <a href="mailto:tinkalsolutions@gmail.com" class="footer-link">Email Us</a>
+        <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="footer-link" target="_blank">WhatsApp</a>
+        <a href="tel:+919306817689" class="footer-link">Call Directly</a>
+        <a href="admin/login.html" class="footer-link" style="opacity:0.3;font-size:11px;">Admin</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Tinkal. All rights reserved. | tinkal.us.cc</div>
+      <div class="footer-made">Built with ❤️ for ambitious SMBs worldwide</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ FLOATING WIDGETS ════════════════════════════════════ -->
+<div class="floating-widgets">
+  <a href="tel:+919306817689" class="float-btn float-call" title="Call Us">
+    <i class="fas fa-phone"></i>
+    <span class="tooltip">Call Us</span>
+  </a>
+  <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="float-btn float-whatsapp" target="_blank" title="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="tooltip">Chat on WhatsApp</span>
+  </a>
+</div>
+
+<!-- ══ SCRIPTS ══════════════════════════════════════════════ -->
+<script src="assets/js/firebase-config.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  // Init EmailJS
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+  // Load dynamic content
+  window.addEventListener('load', function() {
+    initHeroThreeJS();
+    loadHomeReviews();
+    loadHomeProjects();
+  });
+</script>
+</body>
+</html>

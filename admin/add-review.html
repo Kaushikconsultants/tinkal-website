@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add / Edit Review — Tinkal Admin</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body class="admin-body">
+
+<!-- SIDEBAR -->
+<div class="admin-sidebar">
+  <div class="admin-sidebar-logo">
+    <img src="https://www.genspark.ai/api/files/s/k0PaGPv7" alt="Tinkal" onerror="this.style.display='none'"/>TINKAL
+  </div>
+  <div class="admin-nav-label">Main</div>
+  <a href="dashboard.html" class="admin-nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+  <a href="add-project.html" class="admin-nav-link"><i class="fas fa-plus-circle"></i> Add Project</a>
+  <a href="add-review.html" class="admin-nav-link active"><i class="fas fa-star-half-alt"></i> Add Review</a>
+  <div class="admin-nav-label" style="margin-top:16px;">Website</div>
+  <a href="../index.html" class="admin-nav-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
+  <div style="margin-top:auto;padding:20px 24px;">
+    <button onclick="adminLogout()" class="admin-logout" style="width:100%;justify-content:center;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="admin-content">
+  <div class="admin-topbar">
+    <div class="admin-page-title" id="pageTitle"><i class="fas fa-star" style="color:#F6C23E;margin-right:10px;"></i>Add Client Review</div>
+    <div style="display:flex;gap:10px;">
+      <a href="dashboard.html" class="admin-logout"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+      <button onclick="adminLogout()" class="admin-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+  </div>
+
+  <div class="admin-form-card">
+    <form id="reviewForm" onsubmit="handleReviewSubmit(event)">
+
+      <!-- Client Info -->
+      <div class="admin-form-section">
+        <div class="admin-form-section-title"><i class="fas fa-user"></i> Client Information</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Client Name *</label>
+            <input type="text" class="form-input" id="rClientName" placeholder="e.g. Rahul Sharma" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Business Name</label>
+            <input type="text" class="form-input" id="rBusinessName" placeholder="e.g. Sharma Electronics"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review Type Toggle -->
+      <div class="admin-form-section">
+        <div class="admin-form-section-title"><i class="fas fa-toggle-on"></i> Review Type</div>
+        <div style="display:flex;gap:16px;margin-bottom:24px;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:14px 24px;border-radius:10px;border:2px solid var(--blue);background:rgba(0,102,255,0.05);flex:1;transition:var(--transition);" id="textTypeLabel">
+            <input type="radio" name="rType" value="text" id="typeText" checked style="width:18px;height:18px;" onchange="toggleType('text')"/>
+            <div><div style="font-weight:700;color:var(--navy);font-size:15px;"><i class="fas fa-quote-left" style="color:var(--blue);margin-right:6px;"></i>Text Review</div><div style="font-size:12px;color:var(--text2);">Star rating + written testimonial</div></div>
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:14px 24px;border-radius:10px;border:2px solid var(--border);flex:1;transition:var(--transition);" id="videoTypeLabel">
+            <input type="radio" name="rType" value="video" id="typeVideo" style="width:18px;height:18px;" onchange="toggleType('video')"/>
+            <div><div style="font-weight:700;color:var(--navy);font-size:15px;"><i class="fab fa-youtube" style="color:#FF0000;margin-right:6px;"></i>Video Review</div><div style="font-size:12px;color:var(--text2);">Embed YouTube video testimonial</div></div>
+          </label>
+        </div>
+
+        <!-- TEXT Review Fields -->
+        <div id="textFields">
+          <div class="form-group">
+            <label class="form-label">Star Rating</label>
+            <div id="starRatingUI" style="display:flex;gap:8px;margin-bottom:8px;">
+              <span class="star-btn" data-val="1" onclick="setStars(1)" style="font-size:28px;cursor:pointer;color:#F6C23E;transition:transform 0.2s;">★</span>
+              <span class="star-btn" data-val="2" onclick="setStars(2)" style="font-size:28px;cursor:pointer;color:#F6C23E;transition:transform 0.2s;">★</span>
+              <span class="star-btn" data-val="3" onclick="setStars(3)" style="font-size:28px;cursor:pointer;color:#F6C23E;transition:transform 0.2s;">★</span>
+              <span class="star-btn" data-val="4" onclick="setStars(4)" style="font-size:28px;cursor:pointer;color:#F6C23E;transition:transform 0.2s;">★</span>
+              <span class="star-btn" data-val="5" onclick="setStars(5)" style="font-size:28px;cursor:pointer;color:#F6C23E;transition:transform 0.2s;">★</span>
+            </div>
+            <input type="hidden" id="rStars" value="5"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Review Text *</label>
+            <textarea class="form-input form-textarea" id="rText" placeholder="Write the client's testimonial here..." style="min-height:120px;"></textarea>
+          </div>
+        </div>
+
+        <!-- VIDEO Review Fields -->
+        <div id="videoFields" style="display:none;">
+          <div class="form-group">
+            <label class="form-label">YouTube Video URL *</label>
+            <input type="url" class="form-input" id="rVideoUrl" placeholder="https://www.youtube.com/watch?v=..." oninput="previewYouTube(this.value)"/>
+            <div id="ytPreview" style="margin-top:12px;border-radius:10px;overflow:hidden;display:none;max-width:480px;">
+              <iframe id="ytPreviewFrame" width="100%" height="270" frameborder="0" allowfullscreen style="display:block;"></iframe>
+            </div>
+            <div style="font-size:12px;color:var(--text2);margin-top:6px;"><i class="fas fa-info-circle"></i> Paste a YouTube video URL of the client video testimonial.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publish -->
+      <div class="admin-form-section">
+        <div class="admin-form-section-title"><i class="fas fa-toggle-on"></i> Visibility</div>
+        <div class="toggle-wrap">
+          <label class="toggle">
+            <input type="checkbox" id="rPublished" checked/>
+            <span class="toggle-slider"></span>
+          </label>
+          <span style="font-size:15px;font-weight:500;color:var(--navy);">Published (visible on website)</span>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div id="formMsg" style="display:none;padding:12px 16px;border-radius:8px;margin-bottom:16px;font-weight:600;font-size:14px;"></div>
+      <div style="display:flex;gap:12px;">
+        <button type="submit" class="btn-submit" id="submitBtn" style="max-width:240px;">
+          <i class="fas fa-save"></i> <span id="submitText">Save Review</span>
+        </button>
+        <a href="dashboard.html" class="btn-outline" style="padding:16px 28px;">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../assets/js/firebase-config.js"></script>
+<script>
+  requireAdmin();
+
+  let selectedStars = 5;
+  setStars(5);
+
+  const params = new URLSearchParams(window.location.search);
+  const editId = params.get('edit');
+  if (editId) {
+    document.getElementById('pageTitle').innerHTML = '<i class="fas fa-edit" style="color:var(--blue);margin-right:10px;"></i>Edit Review';
+    document.getElementById('submitText').textContent = 'Update Review';
+    loadReviewForEdit(editId);
+  }
+
+  async function loadReviewForEdit(id) {
+    const r = await getReviewById(id);
+    if (!r) { alert('Review not found'); return; }
+    document.getElementById('rClientName').value = r.clientName || '';
+    document.getElementById('rBusinessName').value = r.businessName || '';
+    if (r.type === 'video') {
+      document.getElementById('typeVideo').checked = true;
+      toggleType('video');
+      document.getElementById('rVideoUrl').value = r.videoUrl || '';
+      if (r.videoUrl) previewYouTube(r.videoUrl);
+    } else {
+      setStars(r.stars || 5);
+      document.getElementById('rText').value = r.text || '';
+    }
+    document.getElementById('rPublished').checked = r.published !== false;
+  }
+
+  function setStars(n) {
+    selectedStars = n;
+    document.getElementById('rStars').value = n;
+    document.querySelectorAll('.star-btn').forEach((s, i) => {
+      s.style.color = i < n ? '#F6C23E' : '#DDD';
+      s.style.transform = i < n ? 'scale(1.1)' : 'scale(1)';
+    });
+  }
+
+  function toggleType(type) {
+    const tl = document.getElementById('textTypeLabel');
+    const vl = document.getElementById('videoTypeLabel');
+    const tf = document.getElementById('textFields');
+    const vf = document.getElementById('videoFields');
+    if (type === 'text') {
+      tf.style.display = 'block'; vf.style.display = 'none';
+      tl.style.borderColor = 'var(--blue)'; tl.style.background = 'rgba(0,102,255,0.05)';
+      vl.style.borderColor = 'var(--border)'; vl.style.background = 'transparent';
+    } else {
+      tf.style.display = 'none'; vf.style.display = 'block';
+      vl.style.borderColor = '#FF0000'; vl.style.background = 'rgba(255,0,0,0.03)';
+      tl.style.borderColor = 'var(--border)'; tl.style.background = 'transparent';
+    }
+  }
+
+  function extractYouTubeId(url) {
+    const match = url.match(/(?:v=|\/embed\/|\.be\/)([a-zA-Z0-9_-]{11})/);
+    return match ? match[1] : null;
+  }
+
+  function previewYouTube(url) {
+    const id = extractYouTubeId(url);
+    const wrap = document.getElementById('ytPreview');
+    const frame = document.getElementById('ytPreviewFrame');
+    if (id) {
+      frame.src = `https://www.youtube.com/embed/${id}`;
+      wrap.style.display = 'block';
+    } else {
+      wrap.style.display = 'none';
+      frame.src = '';
+    }
+  }
+
+  async function handleReviewSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const msgEl = document.getElementById('formMsg');
+    const type = document.querySelector('input[name="rType"]:checked').value;
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+
+    const data = {
+      clientName: document.getElementById('rClientName').value.trim(),
+      businessName: document.getElementById('rBusinessName').value.trim(),
+      type,
+      published: document.getElementById('rPublished').checked
+    };
+
+    if (type === 'text') {
+      const text = document.getElementById('rText').value.trim();
+      if (!text) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-save"></i> Save Review'; alert('Please enter the review text.'); return; }
+      data.stars = parseInt(document.getElementById('rStars').value);
+      data.text = text;
+    } else {
+      const vidUrl = document.getElementById('rVideoUrl').value.trim();
+      if (!vidUrl) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-save"></i> Save Review'; alert('Please enter the YouTube URL.'); return; }
+      data.videoUrl = vidUrl;
+    }
+
+    try {
+      await saveReview(data, editId || null);
+      msgEl.style.display = 'block';
+      msgEl.style.background = 'rgba(0,200,55,0.08)';
+      msgEl.style.border = '1px solid rgba(0,200,55,0.2)';
+      msgEl.style.color = '#00A82B';
+      msgEl.textContent = editId ? '✅ Review updated successfully!' : '✅ Review added successfully!';
+      btn.innerHTML = '<i class="fas fa-check"></i> Saved!';
+      setTimeout(() => window.location.href = 'dashboard.html', 1500);
+    } catch(err) {
+      msgEl.style.display = 'block';
+      msgEl.style.background = '#FFF5F5';
+      msgEl.style.border = '1px solid #FEB2B2';
+      msgEl.style.color = '#C53030';
+      msgEl.textContent = '❌ Error: ' + err.message;
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-save"></i> Save Review';
+    }
+  }
+</script>
+</body>
+</html>
