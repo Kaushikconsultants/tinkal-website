@@ -46,9 +46,13 @@
   </div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
 <script src="../assets/js/firebase-config.js"></script>
+
 <script>
-  // Redirect if already logged in
+  // Redirect if already logged in (uses the function from your config)
   if (isAdminLoggedIn()) window.location.href = 'dashboard.html';
 
   function handleLogin(e) {
@@ -56,6 +60,8 @@
     const id = document.getElementById('adminId').value.trim();
     const pass = document.getElementById('adminPass').value;
     const errEl = document.getElementById('loginErr');
+    
+    // Uses the function from your config
     if (adminLogin(id, pass)) {
       window.location.href = 'dashboard.html';
     } else {
