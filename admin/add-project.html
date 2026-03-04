@@ -130,13 +130,20 @@
   </div>
 </div>
 
-<script src="../assets/js/firebase-config.js"></script>
-<script>
-  requireAdmin();
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
+<script src="../assets/js/firebase-config.js"></script>
+
+<script>
+  // Setup global variables first
   const params = new URLSearchParams(window.location.search);
   const editId = params.get('edit');
 
+  // Check login status
+  requireAdmin();
+
+  // If editing an existing project, load its data
   if (editId) {
     document.getElementById('pageTitle').innerHTML = '<i class="fas fa-edit" style="color:var(--blue);margin-right:10px;"></i>Edit Project';
     document.getElementById('submitText').textContent = 'Update Project';
@@ -175,12 +182,16 @@
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
     const msgEl = document.getElementById('formMsg');
+    
+    // UI Loading state
     btn.disabled = true;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
 
+    // Process extra images
     const extraImagesRaw = document.getElementById('pExtraImages').value.trim();
     const extraImages = extraImagesRaw ? extraImagesRaw.split('\n').map(s => s.trim()).filter(Boolean) : [];
 
+    // Gather data
     const data = {
       title: document.getElementById('pTitle').value.trim(),
       category: document.getElementById('pCategory').value,
@@ -196,15 +207,22 @@
     };
 
     try {
+      // Save to Firebase using the globally declared editId
       await saveProject(data, editId || null);
+      
+      // Success message
       msgEl.style.display = 'block';
       msgEl.style.background = 'rgba(0,200,55,0.08)';
       msgEl.style.border = '1px solid rgba(0,200,55,0.2)';
       msgEl.style.color = '#00A82B';
       msgEl.textContent = editId ? '✅ Project updated successfully!' : '✅ Project added successfully!';
       btn.innerHTML = '<i class="fas fa-check"></i> Saved!';
+      
+      // Redirect after 1.5 seconds
       setTimeout(() => window.location.href = 'dashboard.html', 1500);
+      
     } catch(err) {
+      // Error message
       msgEl.style.display = 'block';
       msgEl.style.background = '#FFF5F5';
       msgEl.style.border = '1px solid #FEB2B2';
