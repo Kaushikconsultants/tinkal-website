@@ -267,10 +267,10 @@ function renderTextReview(r) {
   </div></div>`;
 }
 
-// Helper to get YouTube ID for video reviews
+// Upgraded Helper to get YouTube ID (Supports Shorts & Mobile links)
 function extractYouTubeId(url) {
   if (!url) return null;
-  const match = url.match(/(?:v=|\/embed\/|\.be\/)([a-zA-Z0-9_-]{11})/);
+  const match = url.match(/(?:v=|\/embed\/|\.be\/|\/shorts\/|\/v\/|\/e\/|watch\?v=|&v=|^youtu\.be\/)([a-zA-Z0-9_-]{11})/);
   return match ? match[1] : null;
 }
 
