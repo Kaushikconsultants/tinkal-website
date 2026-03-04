@@ -230,80 +230,69 @@ function initServiceFilter() {
 async function loadHomeReviews() {
   const grid = document.getElementById('homeReviewsGrid');
   if (!grid) return;
-  grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;"><i class="fas fa-circle-notch fa-spin" style="color:var(--blue);font-size:28px;"></i></div>`;
   const reviews = await getReviews(6);
   if (!reviews.length) {
-    grid.innerHTML = `<div class="no-reviews-placeholder"><i class="fas fa-star"></i><p>Client testimonials coming soon!</p></div>`;
+    grid.innerHTML = `<div class="no-reviews-placeholder" style="width:100%;"><p>Client testimonials coming soon!</p></div>`;
     return;
   }
+  // Wrap in swiper-slide
   grid.innerHTML = reviews.map(r => r.type === 'video' ? renderVideoReview(r) : renderTextReview(r)).join('');
-  // re-trigger AOS
-  grid.querySelectorAll('[data-aos]').forEach(el => {
-    setTimeout(() => el.classList.add('aos-animate'), 100);
+  
+  // Initialize Swiper
+  new Swiper('.reviewsSwiper', {
+    slidesPerView: 1, spaceBetween: 24, loop: true,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    navigation: { nextEl: '.r-next', prevEl: '.r-prev' },
+    breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
   });
 }
 
 function renderTextReview(r) {
   const stars = '★'.repeat(r.stars || 5) + '☆'.repeat(5 - (r.stars || 5));
   const initial = (r.clientName || 'C').charAt(0).toUpperCase();
-  return `<div class="review-card" data-aos="fade-up">
-    <div class="review-stars">${stars}</div>
-    <p class="review-text">"${r.text}"</p>
-    <div class="review-author">
-      <div class="review-avatar">${initial}</div>
-      <div>
-        <div class="review-name">${r.clientName || ''}</div>
-        <div class="review-biz">${r.businessName || ''}</div>
-      </div>
-    </div>
-  </div>`;
+  return `<div class="swiper-slide"><div class="review-card" style="height:100%;display:flex;flex-direction:column;justify-content:space-between;">
+    <div><div class="review-stars">${stars}</div><p class="review-text">"${r.text}"</p></div>
+    <div class="review-author"><div class="review-avatar">${initial}</div><div><div class="review-name">${r.clientName || ''}</div><div class="review-biz">${r.businessName || ''}</div></div></div>
+  </div></div>`;
 }
 
 function renderVideoReview(r) {
   const embedId = extractYouTubeId(r.videoUrl);
-  return `<div class="review-video-card" data-aos="fade-up">
-    <div class="review-video-thumb">
-      <iframe src="https://www.youtube.com/embed/${embedId}" allowfullscreen loading="lazy"></iframe>
-    </div>
-    <div class="review-video-info">
-      <div class="review-name">${r.clientName || ''}</div>
-      <div class="review-biz">${r.businessName || ''}</div>
-    </div>
-  </div>`;
-}
-
-function extractYouTubeId(url) {
-  if (!url) return '';
-  const match = url.match(/(?:v=|\/embed\/|\.be\/)([a-zA-Z0-9_-]{11})/);
-  return match ? match[1] : '';
+  return `<div class="swiper-slide"><div class="review-video-card" style="height:100%;">
+    <div class="review-video-thumb"><iframe src="https://www.youtube.com/embed/${embedId}" allowfullscreen loading="lazy"></iframe></div>
+    <div class="review-video-info"><div class="review-name">${r.clientName || ''}</div><div class="review-biz">${r.businessName || ''}</div></div>
+  </div></div>`;
 }
 
 // ── LOAD PROJECTS (HOME PREVIEW) ──────────────────────────
 async function loadHomeProjects() {
   const grid = document.getElementById('homeProjectsGrid');
   if (!grid) return;
-  grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;"><i class="fas fa-circle-notch fa-spin" style="color:var(--blue);font-size:28px;"></i></div>`;
-  const projects = await getProjects(3);
+  const projects = await getProjects(6); // Fetch 6 for the slider
   if (!projects.length) {
-    grid.innerHTML = `<div class="no-projects-placeholder"><i class="fas fa-folder-open" style="font-size:48px;color:var(--border);display:block;margin-bottom:12px;"></i><p style="color:var(--text2);">Portfolio projects coming soon!</p></div>`;
+    grid.innerHTML = `<div class="no-projects-placeholder" style="width:100%;"><p>Projects coming soon!</p></div>`;
     return;
   }
   grid.innerHTML = projects.map(p => renderProjectCard(p)).join('');
+  
+  // Initialize Swiper
+  new Swiper('.projectsSwiper', {
+    slidesPerView: 1, spaceBetween: 24, loop: true,
+    autoplay: { delay: 3500, disableOnInteraction: false },
+    navigation: { nextEl: '.p-next', prevEl: '.p-prev' },
+    breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+  });
 }
 
 function renderProjectCard(p) {
-  const imgHtml = p.heroImage
-    ? `<img src="${p.heroImage}" alt="${p.title}" style="width:100%;height:200px;object-fit:cover;">`
-    : `<div style="height:200px;background:linear-gradient(135deg,#0D2461,#0066FF);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:48px;"><i class="fas fa-cube"></i></div>`;
+  const imgHtml = p.heroImage ? `<img src="${p.heroImage}" alt="${p.title}" style="width:100%;height:200px;object-fit:cover;">` : `<div style="height:200px;background:linear-gradient(135deg,#0D2461,#0066FF);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:48px;"><i class="fas fa-cube"></i></div>`;
   const tags = (p.tags || '').split(',').filter(Boolean).map(t => `<span class="project-tag">${t.trim()}</span>`).join('');
-  return `<div class="project-card" onclick='openProjectModal(${JSON.stringify(p)})' data-aos="fade-up">
+  return `<div class="swiper-slide" style="height:auto;"><div class="project-card" onclick='openProjectModal(${JSON.stringify(p).replace(/'/g,"&#39;")})' style="height:100%;display:flex;flex-direction:column;">
     <div class="project-thumb">${imgHtml}</div>
-    <div class="project-info">
-      <div class="project-tags">${tags}</div>
-      <div class="project-title">${p.title}</div>
-      <div class="project-desc">${(p.description || '').substring(0,100)}${(p.description||'').length>100?'...':''}</div>
+    <div class="project-info" style="flex:1;">
+      <div class="project-tags">${tags}</div><div class="project-title">${p.title}</div><div class="project-desc">${(p.description || '').substring(0,100)}...</div>
     </div>
-  </div>`;
+  </div></div>`;
 }
 
 // ── LOAD PROJECTS (PROJECTS PAGE) ─────────────────────────
