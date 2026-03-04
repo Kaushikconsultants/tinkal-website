@@ -267,6 +267,13 @@ function renderTextReview(r) {
   </div></div>`;
 }
 
+// Helper to get YouTube ID for video reviews
+function extractYouTubeId(url) {
+  if (!url) return null;
+  const match = url.match(/(?:v=|\/embed\/|\.be\/)([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : null;
+}
+
 function renderVideoReview(r) {
   const embedId = extractYouTubeId(r.videoUrl);
   return `<div class="swiper-slide"><div class="review-video-card" style="height:100%;">
