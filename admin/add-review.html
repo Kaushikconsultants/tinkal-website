@@ -121,9 +121,15 @@
       </div>
     </form>
   </div>
-</div>
+</div><script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
 <script src="../assets/js/firebase-config.js"></script>
+
+<script>
+  // Setup global variables first to prevent the initialization error
+  const params = new URLSearchParams(window.location.search);
+  const editId = params.get('edit');
 <script>
   requireAdmin();
 
