@@ -230,11 +230,22 @@ function initServiceFilter() {
 async function loadHomeReviews() {
   const grid = document.getElementById('homeReviewsGrid');
   if (!grid) return;
-  const reviews = await getReviews(6);
+  
+  // FIX: Using your existing getAllReviews() function, then filtering to only show published ones
+  let allReviews = [];
+  try {
+    allReviews = await getAllReviews();
+  } catch (e) {
+    console.error("Error loading reviews:", e);
+  }
+
+  const reviews = allReviews.filter(r => r.published !== false).slice(0, 6);
+
   if (!reviews.length) {
-    grid.innerHTML = `<div class="no-reviews-placeholder" style="width:100%;"><p>Client testimonials coming soon!</p></div>`;
+    grid.innerHTML = `<div class="no-reviews-placeholder" style="width:100%;text-align:center;padding:40px;"><p style="color:var(--text2);">Client testimonials coming soon!</p></div>`;
     return;
   }
+  
   // Wrap in swiper-slide
   grid.innerHTML = reviews.map(r => r.type === 'video' ? renderVideoReview(r) : renderTextReview(r)).join('');
   
