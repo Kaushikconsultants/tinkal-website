@@ -121,23 +121,23 @@
       </div>
     </form>
   </div>
-</div><script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
 <script src="../assets/js/firebase-config.js"></script>
 
 <script>
-  // Setup global variables first to prevent the initialization error
+  // 1. Check admin login
+  requireAdmin();
+
+  // 2. Setup global variables exactly once
   const params = new URLSearchParams(window.location.search);
   const editId = params.get('edit');
-<script>
-  requireAdmin();
 
   let selectedStars = 5;
   setStars(5);
 
-  const params = new URLSearchParams(window.location.search);
-  const editId = params.get('edit');
+  // 3. If editing, load data
   if (editId) {
     document.getElementById('pageTitle').innerHTML = '<i class="fas fa-edit" style="color:var(--blue);margin-right:10px;"></i>Edit Review';
     document.getElementById('submitText').textContent = 'Update Review';
