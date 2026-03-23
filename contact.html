@@ -1,276 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Tinkal Digital Agency</title>
-  <meta name="description" content="Get in touch with Tinkal. Book a free audit, send an enquiry, or WhatsApp us directly. tinkalsolutions@gmail.com | +91 93068 17689"/>
-  <link rel="icon" type="image/png" href="assets/img/logo.png"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta name="description"
+    content="Get in touch with Tinkal. Book a free audit, send an enquiry, or WhatsApp us directly. tinkalsolutions@gmail.com | +91 93068 17689" />
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-  <a href="index.html" class="nav-logo">
-    <img src="assets/img/logo.png" alt="Tinkal Logo" onerror="this.style.display='none'"/>TINKAL
-  </a>
-  <ul class="nav-links">
-    <li><a href="/">Home</a>
-    <li><a href="/services">Services</a>
-    <li><a href="/projects">Projects</a>
-    <li><a href="/contact" class="active">Contact</a></li>
-    <li><a href="/contact" class="nav-cta">Get Free Audit →</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-close" id="mobileClose">×</div>
-  <a href="index.html">Home</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a>
-  <a href="contact.html" style="background:var(--navy);color:#fff;padding:14px 32px;border-radius:10px;">Get Free Audit →</a>
-</div>
-
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <div class="breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size:10px;"></i> Contact</div>
-    <h1>Let's Build <span style="color:var(--cyan);">Something Great</span></h1>
-    <p>Free consultation, no commitment. Tell us your challenge — we'll architect the solution.</p>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;">
-      <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="btn-primary" target="_blank" style="background:#25D366;box-shadow:0 6px 24px rgba(37,211,102,0.35);"><i class="fab fa-whatsapp"></i> WhatsApp Us Now</a>
-      <a href="tel:+919306817689" class="btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;"><i class="fas fa-phone"></i> Call Directly</a>
-    </div>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="/" class="nav-logo">
+      <img src="assets/img/logo.png" alt="Tinkal Logo" onerror="this.style.display='none'" />TINKAL
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a>
+      <li><a href="/services">Services</a>
+      <li><a href="/projects">Projects</a>
+      <li><a href="/contact" class="active">Contact</a></li>
+      <li><a href="/contact" class="nav-cta">Get Free Audit →</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-close" id="mobileClose">×</div>
+    <a href="/">Home</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/contact">Contact</a>
+    <a href="/contact" style="background:var(--navy);color:#fff;padding:14px 32px;border-radius:10px;">Get Free Audit
+      →</a>
   </div>
-</div>
 
-<!-- CONTACT SECTION -->
-<section class="section" style="background:var(--bg);">
-  <div class="section-inner">
-    <div class="contact-grid">
-
-      <!-- LEFT: Info Cards -->
-      <div>
-        <div data-aos="fade-right">
-          <span class="section-tag"><i class="fas fa-address-card"></i> Get In Touch</span>
-          <h2 class="section-h2">We're Just a <span>Message Away</span></h2>
-          <p class="section-sub" style="margin-bottom:36px;">Whether you have a project in mind or just a question — we respond within 24 hours.</p>
-        </div>
-
-        <a href="mailto:tinkalsolutions@gmail.com" class="contact-info-card" data-aos="fade-right" data-aos-delay="100">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <div>
-            <div class="contact-info-label">Email Us</div>
-            <div class="contact-info-value">tinkalsolutions@gmail.com</div>
-          </div>
-        </a>
-
-        <a href="tel:+919306817689" class="contact-info-card" data-aos="fade-right" data-aos-delay="200">
-          <div class="contact-icon"><i class="fas fa-phone"></i></div>
-          <div>
-            <div class="contact-info-label">Call Directly</div>
-            <div class="contact-info-value">+91 93068 17689</div>
-          </div>
-        </a>
-
-        <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="contact-info-card" target="_blank" data-aos="fade-right" data-aos-delay="300">
-          <div class="contact-icon" style="background:#25D366;"><i class="fab fa-whatsapp"></i></div>
-          <div>
-            <div class="contact-info-label">WhatsApp Chat</div>
-            <div class="contact-info-value">+91 93068 17689</div>
-            <div style="font-size:12px;color:var(--text2);margin-top:2px;">Pre-filled: "I need solution for my business"</div>
-          </div>
-        </a>
-
-        <a href="https://tinkal.in" class="contact-info-card" data-aos="fade-right" data-aos-delay="400">
-          <div class="contact-icon"><i class="fas fa-globe"></i></div>
-          <div>
-            <div class="contact-info-label">Our Website</div>
-            <div class="contact-info-value">tinkal.in</div>
-          </div>
-        </a>
-
-        <!-- Response time badge -->
-        <div style="background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:12px;padding:20px 24px;margin-top:8px;display:flex;align-items:center;gap:16px;" data-aos="fade-right" data-aos-delay="500">
-          <div style="width:48px;height:48px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0;"><i class="fas fa-clock"></i></div>
-          <div>
-            <div style="font-family:var(--font-head);font-weight:700;color:#fff;font-size:16px;">Average Response Time</div>
-            <div style="color:rgba(255,255,255,0.75);font-size:14px;">Within 24 hours on all channels</div>
-          </div>
-        </div>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="/">Home</a> <i class="fas fa-chevron-right" style="font-size:10px;"></i> Contact
       </div>
-
-      <!-- RIGHT: Contact Form -->
-      <div data-aos="fade-left">
-        <div class="contact-form-card">
-          <div style="margin-bottom:28px;">
-            <h3 style="font-family:var(--font-head);font-weight:700;font-size:22px;color:var(--navy);margin-bottom:6px;">Send Us an Enquiry</h3>
-            <p style="color:var(--text2);font-size:14px;">Fill in your details and we'll get back to you within 24 hours with a custom quote.</p>
-          </div>
-          <form id="mainContactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label">Full Name *</label>
-                <input type="text" class="form-input" name="from_name" placeholder="Your full name" required/>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Business Name *</label>
-                <input type="text" class="form-input" name="business_name" placeholder="Your company" required/>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label">Mobile Number *</label>
-                <input type="tel" class="form-input" name="phone" placeholder="+91 XXXXX XXXXX" required/>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Email Address *</label>
-                <input type="email" class="form-input" name="from_email" placeholder="you@company.com" required/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Website (if any)</label>
-              <input type="url" class="form-input" name="website" placeholder="https://yourwebsite.com"/>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Service Interested In *</label>
-              <select class="form-input form-select" name="service" required>
-                <option value="" disabled selected>Select a service...</option>
-                <optgroup label="Tech & Engineering">
-                  <option>Shopify Store + Custom Theme</option>
-                  <option>3D Dynamic Website</option>
-                  <option>Informational Website</option>
-                  <option>Online Store / Ecommerce Website</option>
-                  <option>Custom API Integration</option>
-                </optgroup>
-                <optgroup label="AI & Automation">
-                  <option>AI Calling Agents</option>
-                  <option>Business Process Automation</option>
-                  <option>Zoho Full Setup</option>
-                </optgroup>
-                <optgroup label="Creative & Production">
-                  <option>Professional Product Photography</option>
-                  <option>Logo Creation + Animation</option>
-                  <option>3D Banners & Hero Sections</option>
-                  <option>FB & Instagram Graphics</option>
-                </optgroup>
-                <optgroup label="Growth & Marketing">
-                  <option>Ecommerce Channel Setup (Amazon/Meesho/FB)</option>
-                  <option>WhatsApp & RCS Marketing</option>
-                  <option>RTO Reduction Strategy</option>
-                  <option>Growth & Marketing Strategy</option>
-                </optgroup>
-                <option value="Not sure / Need consultation">Not sure — Need consultation</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Describe Your Requirement</label>
-              <textarea class="form-input form-textarea" name="message" placeholder="Tell us about your business, what you're trying to achieve, and any specific requirements..."></textarea>
-            </div>
-            <button type="submit" class="btn-submit" id="contactSubmitBtn">
-              Send My Enquiry <i class="fas fa-paper-plane"></i>
-            </button>
-            <div class="form-success" id="contactSuccess">✅ Your message has been sent! We'll contact you within 24 hours.</div>
-          </form>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FAQ SECTION -->
-<section class="section" style="background:var(--white);padding-top:60px;">
-  <div class="section-inner" style="max-width:800px;">
-    <div style="text-align:center;">
-      <span class="section-tag"><i class="fas fa-question-circle"></i> FAQ</span>
-      <h2 class="section-h2 text-center">Frequently Asked <span>Questions</span></h2>
-    </div>
-    <div style="margin-top:40px;">
-      <div class="faq-item">
-        <div class="faq-q">How long does a typical project take? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">Timelines vary by project. A logo takes 2–5 days, a basic website 1–2 weeks, a Shopify store 2–4 weeks, and complex automation systems 4–8 weeks. We always provide a clear timeline upfront before starting.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Do you work with international clients? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">Absolutely! We work with clients across India, the USA, UK, UAE, Australia, and globally. We accept both INR (₹) and USD ($). Communication happens over WhatsApp, email, and video calls — fully remote.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What is the minimum budget for a project? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">We start from as low as ₹999 / $10 for smaller tasks like logo design or a single product photoshoot. Larger projects like full Shopify stores or automation systems are custom-quoted based on scope. We always provide transparent pricing before starting.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Do you provide post-launch support? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">Yes! All projects include 30 days of post-launch support at no extra cost. Beyond that, we offer ongoing maintenance and growth retainer packages. We're a long-term partner, not a one-time vendor.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How do payments work? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">We follow milestone-based payments — typically 50% upfront and 50% on delivery for most projects. For larger projects, we split into 3 milestones. We accept bank transfer, UPI, Razorpay, and PayPal (for international clients).</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Can you help if I'm not sure what I need? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">That's what we're best at! Just describe your business problem — we'll audit your situation and recommend the right solution. Book a free consultation and we'll map out the exact solution within 24 hours.</div>
+      <h1>Let's Build <span style="color:var(--cyan);">Something Great</span></h1>
+      <p>Free consultation, no commitment. Tell us your challenge — we'll architect the solution.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;">
+        <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="btn-primary"
+          target="_blank" style="background:#25D366;box-shadow:0 6px 24px rgba(37,211,102,0.35);"><i
+            class="fab fa-whatsapp"></i> WhatsApp Us Now</a>
+        <a href="tel:+919306817689" class="btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;"><i
+            class="fas fa-phone"></i> Call Directly</a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer class="footer">
- <div class="footer-top">
+  <!-- CONTACT SECTION -->
+  <section class="section" style="background:var(--bg);">
+    <div class="section-inner">
+      <div class="contact-grid">
+
+        <!-- LEFT: Info Cards -->
+        <div>
+          <div data-aos="fade-right">
+            <span class="section-tag"><i class="fas fa-address-card"></i> Get In Touch</span>
+            <h2 class="section-h2">We're Just a <span>Message Away</span></h2>
+            <p class="section-sub" style="margin-bottom:36px;">Whether you have a project in mind or just a question —
+              we respond within 24 hours.</p>
+          </div>
+
+          <a href="mailto:tinkalsolutions@gmail.com" class="contact-info-card" data-aos="fade-right"
+            data-aos-delay="100">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="contact-info-label">Email Us</div>
+              <div class="contact-info-value">tinkalsolutions@gmail.com</div>
+            </div>
+          </a>
+
+          <a href="tel:+919306817689" class="contact-info-card" data-aos="fade-right" data-aos-delay="200">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="contact-info-label">Call Directly</div>
+              <div class="contact-info-value">+91 93068 17689</div>
+            </div>
+          </a>
+
+          <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="contact-info-card"
+            target="_blank" data-aos="fade-right" data-aos-delay="300">
+            <div class="contact-icon" style="background:#25D366;"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <div class="contact-info-label">WhatsApp Chat</div>
+              <div class="contact-info-value">+91 93068 17689</div>
+              <div style="font-size:12px;color:var(--text2);margin-top:2px;">Pre-filled: "I need solution for my
+                business"</div>
+            </div>
+          </a>
+
+          <a href="https://tinkal.in" class="contact-info-card" data-aos="fade-right" data-aos-delay="400">
+            <div class="contact-icon"><i class="fas fa-globe"></i></div>
+            <div>
+              <div class="contact-info-label">Our Website</div>
+              <div class="contact-info-value">tinkal.in</div>
+            </div>
+          </a>
+
+          <!-- Response time badge -->
+          <div
+            style="background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:12px;padding:20px 24px;margin-top:8px;display:flex;align-items:center;gap:16px;"
+            data-aos="fade-right" data-aos-delay="500">
+            <div
+              style="width:48px;height:48px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex-shrink:0;">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div>
+              <div style="font-family:var(--font-head);font-weight:700;color:#fff;font-size:16px;">Average Response Time
+              </div>
+              <div style="color:rgba(255,255,255,0.75);font-size:14px;">Within 24 hours on all channels</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Contact Form -->
+        <div data-aos="fade-left">
+          <div class="contact-form-card">
+            <div style="margin-bottom:28px;">
+              <h3
+                style="font-family:var(--font-head);font-weight:700;font-size:22px;color:var(--navy);margin-bottom:6px;">
+                Send Us an Enquiry</h3>
+              <p style="color:var(--text2);font-size:14px;">Fill in your details and we'll get back to you within 24
+                hours with a custom quote.</p>
+            </div>
+            <form id="mainContactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Full Name *</label>
+                  <input type="text" class="form-input" name="from_name" placeholder="Your full name" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Business Name *</label>
+                  <input type="text" class="form-input" name="business_name" placeholder="Your company" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Mobile Number *</label>
+                  <input type="tel" class="form-input" name="phone" placeholder="+91 XXXXX XXXXX" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email Address *</label>
+                  <input type="email" class="form-input" name="from_email" placeholder="you@company.com" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Website (if any)</label>
+                <input type="url" class="form-input" name="website" placeholder="https://yourwebsite.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Service Interested In *</label>
+                <select class="form-input form-select" name="service" required>
+                  <option value="" disabled selected>Select a service...</option>
+                  <optgroup label="Tech & Engineering">
+                    <option>Shopify Store + Custom Theme</option>
+                    <option>3D Dynamic Website</option>
+                    <option>Informational Website</option>
+                    <option>Online Store / Ecommerce Website</option>
+                    <option>Custom API Integration</option>
+                  </optgroup>
+                  <optgroup label="AI & Automation">
+                    <option>AI Calling Agents</option>
+                    <option>Business Process Automation</option>
+                    <option>Zoho Full Setup</option>
+                  </optgroup>
+                  <optgroup label="Creative & Production">
+                    <option>Professional Product Photography</option>
+                    <option>Logo Creation + Animation</option>
+                    <option>3D Banners & Hero Sections</option>
+                    <option>FB & Instagram Graphics</option>
+                  </optgroup>
+                  <optgroup label="Growth & Marketing">
+                    <option>Ecommerce Channel Setup (Amazon/Meesho/FB)</option>
+                    <option>WhatsApp & RCS Marketing</option>
+                    <option>RTO Reduction Strategy</option>
+                    <option>Growth & Marketing Strategy</option>
+                  </optgroup>
+                  <option value="Not sure / Need consultation">Not sure — Need consultation</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Describe Your Requirement</label>
+                <textarea class="form-input form-textarea" name="message"
+                  placeholder="Tell us about your business, what you're trying to achieve, and any specific requirements..."></textarea>
+              </div>
+              <button type="submit" class="btn-submit" id="contactSubmitBtn">
+                Send My Enquiry <i class="fas fa-paper-plane"></i>
+              </button>
+              <div class="form-success" id="contactSuccess">✅ Your message has been sent! We'll contact you within 24
+                hours.</div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section" style="background:var(--white);padding-top:60px;">
+    <div class="section-inner" style="max-width:800px;">
+      <div style="text-align:center;">
+        <span class="section-tag"><i class="fas fa-question-circle"></i> FAQ</span>
+        <h2 class="section-h2 text-center">Frequently Asked <span>Questions</span></h2>
+      </div>
+      <div style="margin-top:40px;">
+        <div class="faq-item">
+          <div class="faq-q">How long does a typical project take? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">Timelines vary by project. A logo takes 2–5 days, a basic website 1–2 weeks, a Shopify
+            store 2–4 weeks, and complex automation systems 4–8 weeks. We always provide a clear timeline upfront before
+            starting.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you work with international clients? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">Absolutely! We work with clients across India, the USA, UK, UAE, Australia, and globally.
+            We accept both INR (₹) and USD ($). Communication happens over WhatsApp, email, and video calls — fully
+            remote.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What is the minimum budget for a project? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">We start from as low as ₹999 / $10 for smaller tasks like logo design or a single product
+            photoshoot. Larger projects like full Shopify stores or automation systems are custom-quoted based on scope.
+            We always provide transparent pricing before starting.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you provide post-launch support? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">Yes! All projects include 30 days of post-launch support at no extra cost. Beyond that, we
+            offer ongoing maintenance and growth retainer packages. We're a long-term partner, not a one-time vendor.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do payments work? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">We follow milestone-based payments — typically 50% upfront and 50% on delivery for most
+            projects. For larger projects, we split into 3 milestones. We accept bank transfer, UPI, Razorpay, and
+            PayPal (for international clients).</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can you help if I'm not sure what I need? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">That's what we're best at! Just describe your business problem — we'll audit your situation
+            and recommend the right solution. Book a free consultation and we'll map out the exact solution within 24
+            hours.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
       <div>
         <div class="footer-brand-name">
-          <img src="assets/img/logo.png" alt="Tinkal" onerror="this.style.display='none'"/>
+          <img src="assets/img/logo.png" alt="Tinkal" onerror="this.style.display='none'" />
           TINKAL
         </div>
-        <p class="footer-tagline">Your complete digital &amp; operational ecosystem. From ₹999, we build growth engines for SMBs worldwide.</p>
+        <p class="footer-tagline">Your complete digital &amp; operational ecosystem. From ₹999, we build growth engines
+          for SMBs worldwide.</p>
       </div>
 
       <div>
         <div class="footer-heading">Navigation</div>
-        <a href="index.html" class="footer-link">Home</a>
-        <a href="services.html" class="footer-link">Services</a>
-        <a href="projects.html" class="footer-link">Projects</a>
-        <a href="contact.html" class="footer-link">Contact</a>
+        <a href="/" class="footer-link">Home</a>
+        <a href="/services" class="footer-link">Services</a>
+        <a href="/projects" class="footer-link">Projects</a>
+        <a href="/contact" class="footer-link">Contact</a>
       </div>
 
       <div>
         <div class="footer-heading">Services</div>
-        <a href="services.html" class="footer-link">Shopify Stores</a>
-        <a href="services.html" class="footer-link">AI Calling Agents</a>
-        <a href="services.html" class="footer-link">Business Automation</a>
-        <a href="services.html" class="footer-link">WhatsApp Marketing</a>
-        <a href="services.html" class="footer-link">Product Photography</a>
-        <a href="services.html" class="footer-link">Zoho Setup</a>
+        <a href="/services" class="footer-link">Shopify Stores</a>
+        <a href="/services" class="footer-link">AI Calling Agents</a>
+        <a href="/services" class="footer-link">Business Automation</a>
+        <a href="/services" class="footer-link">WhatsApp Marketing</a>
+        <a href="/services" class="footer-link">Product Photography</a>
+        <a href="/services" class="footer-link">Zoho Setup</a>
       </div>
 
       <div>
         <div class="footer-heading">Connect</div>
-        <a href="contact.html" class="footer-link" style="color:var(--cyan);font-weight:600;margin-bottom:16px;">Get Free Audit &rarr;</a>
-        <a href="mailto:tinkalsolutions@gmail.com" class="footer-contact-item"><i class="fas fa-envelope"></i>tinkalsolutions@gmail.com</a>
+        <a href="/contact" class="footer-link" style="color:var(--cyan);font-weight:600;margin-bottom:16px;">Get Free
+          Audit &rarr;</a>
+        <a href="mailto:tinkalsolutions@gmail.com" class="footer-contact-item"><i
+            class="fas fa-envelope"></i>tinkalsolutions@gmail.com</a>
         <a href="tel:+919306817689" class="footer-contact-item"><i class="fas fa-phone"></i>+91 93068 17689</a>
-        <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="footer-contact-item" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp Us</a>
+        <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="footer-contact-item"
+          target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp Us</a>
         <a href="https://tinkal.in" class="footer-contact-item"><i class="fas fa-globe"></i>tinkal.in</a>
         <a href="admin/login.html" class="footer-link" style="opacity:0.3;font-size:11px;margin-top:16px;">Admin</a>
       </div>
     </div>
-    <div class="footer-bottom"><div class="footer-copy">© 2026 Tinkal. All rights reserved.</div><div class="footer-made">Built with ❤️ for ambitious SMBs</div></div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Tinkal. All rights reserved.</div>
+      <div class="footer-made">Built with ❤️ for ambitious SMBs</div>
+    </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WIDGETS -->
+  <div class="floating-widgets">
+    <a href="tel:+919306817689" class="float-btn float-call"><i class="fas fa-phone"></i><span class="tooltip">Call
+        Us</span></a>
+    <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="float-btn float-whatsapp"
+      target="_blank"><i class="fab fa-whatsapp"></i><span class="tooltip">WhatsApp</span></a>
   </div>
-</footer>
 
-<!-- FLOATING WIDGETS -->
-<div class="floating-widgets">
-  <a href="tel:+919306817689" class="float-btn float-call"><i class="fas fa-phone"></i><span class="tooltip">Call Us</span></a>
-  <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="float-btn float-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span class="tooltip">WhatsApp</span></a>
-</div>
-
-<script src="assets/js/main.js"></script>
-<script>
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-  window.addEventListener('DOMContentLoaded', function() {
-    initContactForm('mainContactForm');
-  });
-</script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+    window.addEventListener('DOMContentLoaded', function () {
+      initContactForm('mainContactForm');
+    });
+  </script>
 </body>
+
 </html>
