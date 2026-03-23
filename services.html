@@ -1,529 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Services — Tinkal Digital Agency</title>
-  <meta name="description"
-    content="Explore all 16 services offered by Tinkal — Shopify stores, AI calling agents, business automation, product photography, Zoho setup, WhatsApp marketing, and more. Starting from ₹999." />
-  <link rel="icon" type="image/png" href="assets/img/logo.png" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta name="description" content="Explore all 16 services offered by Tinkal — Shopify stores, AI calling agents, business automation, product photography, Zoho setup, WhatsApp marketing, and more. Starting from ₹999."/>
+  <link rel="icon" type="image/png" href="assets/img/logo.png"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <a href="/" class="nav-logo">
-      <img src="assets/img/logo.png" alt="Tinkal Logo" onerror="this.style.display='none'" />TINKAL
-    </a>
-    <ul class="nav-links">
-      <li><a href="/" class="active">Home</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/contact" class="nav-cta">Get Free Audit →</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-close" id="mobileClose">×</div>
-    <a href="/">Home</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/contact">Contact</a>
-    <a href="/contact" style="background:var(--navy);color:#fff;padding:14px 32px;border-radius:10px;">Get Free Audit
-      →</a>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/img/logo.png" alt="Tinkal Logo" onerror="this.style.display='none'"/>TINKAL
+  </a>
+  <ul class="nav-links">
+    <li><a href="/" class="active">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/contact" class="nav-cta">Get Free Audit →</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-close" id="mobileClose">×</div>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a>
+  <a href="contact.html" style="background:var(--navy);color:#fff;padding:14px 32px;border-radius:10px;">Get Free Audit →</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size:10px;"></i> Services</div>
+    <h1>Our <span style="color:var(--cyan);">Services</span></h1>
+    <p>16 premium services to transform your business. Starting from just ₹999 / $10.</p>
   </div>
+</div>
 
-  <!-- PAGE HERO -->
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="breadcrumb"><a href="/">Home</a> <i class="fas fa-chevron-right" style="font-size:10px;"></i> Services
-      </div>
-      <h1>Our <span style="color:var(--cyan);">Services</span></h1>
-      <p>16 premium services to transform your business. Starting from just ₹999 / $10.</p>
+<!-- SERVICES SECTION -->
+<section class="section" style="background:var(--bg);">
+  <div class="section-inner">
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Services</button>
+      <button class="filter-btn" data-filter="tech"><i class="fas fa-code"></i> Tech & Engineering</button>
+      <button class="filter-btn" data-filter="ai"><i class="fas fa-robot"></i> AI & Automation</button>
+      <button class="filter-btn" data-filter="creative"><i class="fas fa-pen-nib"></i> Creative</button>
+      <button class="filter-btn" data-filter="growth"><i class="fas fa-chart-line"></i> Growth & Marketing</button>
     </div>
+
+    <!-- Services Grid -->
+    <div class="services-full-grid" id="servicesGrid">
+
+      <!-- TECH & ENGINEERING -->
+      <div class="service-card" data-category="tech" data-aos="fade-up">
+        <div class="sc-icon"><i class="fab fa-shopify"></i></div>
+        <div class="sc-title">Shopify Store + Custom Theme</div>
+        <div class="sc-desc">High-converting B2B &amp; B2C Shopify stores built with premium custom themes, immersive product displays, and optimized checkout flows.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Custom Shopify theme design</li><li>Product page optimization</li><li>Payment gateway integration</li><li>Mobile-first responsive build</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹4,999</span><span class="sc-cta" onclick="openEnquiryModal('Shopify Store + Custom Theme')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="tech" data-aos="fade-up" data-aos-delay="100">
+        <div class="sc-icon"><i class="fas fa-cube"></i></div>
+        <div class="sc-title">3D Dynamic Website</div>
+        <div class="sc-desc">Immersive 3D websites with Three.js animations, interactive elements, and cinematic hero sections that leave visitors speechless.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Three.js / WebGL 3D animations</li><li>GSAP scroll interactions</li><li>Responsive across all devices</li><li>Performance optimized</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹7,999</span><span class="sc-cta" onclick="openEnquiryModal('3D Dynamic Website')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="tech" data-aos="fade-up" data-aos-delay="200">
+        <div class="sc-icon"><i class="fas fa-globe"></i></div>
+        <div class="sc-title">Informational Website</div>
+        <div class="sc-desc">Professional business websites that establish credibility, rank on Google, and convert visitors into customers — fast and affordable.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Multi-page website design</li><li>SEO on-page optimization</li><li>Contact form &amp; WhatsApp widget</li><li>Google Analytics setup</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹2,999</span><span class="sc-cta" onclick="openEnquiryModal('Informational Website')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="tech" data-aos="fade-up">
+        <div class="sc-icon"><i class="fas fa-store"></i></div>
+        <div class="sc-title">Online Store / Ecommerce Website</div>
+        <div class="sc-desc">Full-featured ecommerce websites with product catalogues, cart, payment integration, and order management — not just Shopify.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Product catalogue &amp; filtering</li><li>Secure checkout integration</li><li>Order management backend</li><li>Inventory tracking</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹5,999</span><span class="sc-cta" onclick="openEnquiryModal('Online Store / Ecommerce Website')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="tech" data-aos="fade-up" data-aos-delay="100">
+        <div class="sc-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="sc-title">Custom API Integration &amp; Linking</div>
+        <div class="sc-desc">Make all your software communicate seamlessly — Shopify, ERP, CRM, WhatsApp, logistics providers unified into one intelligent system.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>API documentation &amp; mapping</li><li>Webhook &amp; event triggers</li><li>Data sync &amp; transformation</li><li>Error monitoring &amp; alerts</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">Custom Pricing</span><span class="sc-cta" onclick="openEnquiryModal('Custom API Integration')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <!-- AI & AUTOMATION -->
+      <div class="service-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#00C837,#00f0ff);"><i class="fas fa-headset"></i></div>
+        <div class="sc-title">AI Calling Agents</div>
+        <div class="sc-desc">24/7 intelligent voice AI agents that handle inbound support, qualify leads, follow up on prospects, and close sales — without human intervention.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Custom voice &amp; persona setup</li><li>Lead scoring &amp; qualification</li><li>CRM data sync after every call</li><li>Call recordings &amp; analytics</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">Custom Pricing</span><span class="sc-cta" onclick="openEnquiryModal('AI Calling Agents')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="ai" data-aos="fade-up">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#00C837,#00f0ff);"><i class="fas fa-cogs"></i></div>
+        <div class="sc-title">Business Process Automation</div>
+        <div class="sc-desc">Zero-touch automation using n8n, Zapier, and custom scripts to handle order routing, invoice generation, inventory alerts, and shipping hands-free.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Workflow analysis &amp; mapping</li><li>n8n / automation build</li><li>Testing &amp; error handling</li><li>Documentation &amp; training</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹2,999</span><span class="sc-cta" onclick="openEnquiryModal('Business Process Automation')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="ai" data-aos="fade-up" data-aos-delay="100">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#00C837,#00f0ff);"><i class="fas fa-book"></i></div>
+        <div class="sc-title">Zoho Full Setup</div>
+        <div class="sc-desc">Complete Zoho ecosystem deployment — Zoho Books (accounting), Inventory, CRM, Creator (custom apps), and more — fully tailored to your operations.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Zoho Books &amp; Inventory config</li><li>Zoho CRM customization</li><li>Zoho Creator custom modules</li><li>User training &amp; documentation</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹3,999</span><span class="sc-cta" onclick="openEnquiryModal('Zoho Full Setup')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <!-- CREATIVE & PRODUCTION -->
+      <div class="service-card" data-category="creative" data-aos="fade-up" data-aos-delay="200">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#9B00FF,#FF6BFF);"><i class="fas fa-camera"></i></div>
+        <div class="sc-title">Professional Product Photography</div>
+        <div class="sc-desc">Studio-quality product shoots for ecommerce brands — white background, lifestyle, and styled shots that build trust and dramatically increase conversion rates.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Professional lighting setup</li><li>Post-production editing</li><li>Multiple angles &amp; variations</li><li>Ecommerce-ready file delivery</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹999</span><span class="sc-cta" onclick="openEnquiryModal('Product Photography')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="creative" data-aos="fade-up">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#9B00FF,#FF6BFF);"><i class="fas fa-magic"></i></div>
+        <div class="sc-title">Logo Creation + Animation</div>
+        <div class="sc-desc">Distinctive, memorable logo design with professionally animated versions for social media intros, website loading screens, and brand presentations.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>3 logo concept variations</li><li>Vector files (AI, SVG, PNG)</li><li>Animated logo (MP4/GIF/Lottie)</li><li>Brand colour &amp; font guide</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹999</span><span class="sc-cta" onclick="openEnquiryModal('Logo Creation + Animation')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="creative" data-aos="fade-up" data-aos-delay="100">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#9B00FF,#FF6BFF);"><i class="fas fa-layer-group"></i></div>
+        <div class="sc-title">3D Banners, Hero Sections &amp; Animations</div>
+        <div class="sc-desc">Visually stunning 3D product renders, animated hero backgrounds, and high-impact ad banners that make your brand impossible to scroll past.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>3D scene modeling &amp; render</li><li>Animated hero section code</li><li>Social media banner variants</li><li>Video &amp; GIF export formats</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹1,499</span><span class="sc-cta" onclick="openEnquiryModal('3D Banners & Hero Sections')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="creative" data-aos="fade-up" data-aos-delay="200">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#9B00FF,#FF6BFF);"><i class="fas fa-paint-brush"></i></div>
+        <div class="sc-title">FB &amp; Instagram Graphics &amp; Marketing</div>
+        <div class="sc-desc">Scroll-stopping social media creatives, ad visuals, story templates, and carousel designs — professionally crafted to match your brand identity.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Monthly creative calendar</li><li>Story + post design templates</li><li>Ad creative variations (A/B)</li><li>Reel &amp; motion graphics</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹2,499/mo</span><span class="sc-cta" onclick="openEnquiryModal('FB & Instagram Marketing')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <!-- GROWTH & MARKETING -->
+      <div class="service-card" data-category="growth" data-aos="fade-up">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#FF6B00,#FF9B50);"><i class="fas fa-box"></i></div>
+        <div class="sc-title">Ecommerce Channel Setup (Amazon, Meesho, FB)</div>
+        <div class="sc-desc">End-to-end marketplace setup and optimization on Amazon India, Meesho, Facebook Shops — listings, pricing strategy, and growth hacks to dominate your category.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Seller account creation &amp; setup</li><li>Optimized product listings</li><li>Pricing &amp; catalog strategy</li><li>First 30-day growth plan</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹2,499</span><span class="sc-cta" onclick="openEnquiryModal('Ecommerce Channel Setup')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="growth" data-aos="fade-up" data-aos-delay="100">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#FF6B00,#FF9B50);"><i class="fab fa-whatsapp"></i></div>
+        <div class="sc-title">WhatsApp &amp; RCS Marketing</div>
+        <div class="sc-desc">Automated WhatsApp Business API campaigns with 98% open rates — order updates, promotional blasts, abandoned cart recovery, and VIP customer nurturing.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>WhatsApp Business API setup</li><li>Automated flow builds</li><li>Broadcast campaign management</li><li>Analytics &amp; opt-out compliance</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹1,499/mo</span><span class="sc-cta" onclick="openEnquiryModal('WhatsApp & RCS Marketing')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="growth" data-aos="fade-up" data-aos-delay="200">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#FF6B00,#FF9B50);"><i class="fas fa-truck"></i></div>
+        <div class="sc-title">RTO Reduction &amp; Delivery Aggregator Strategy</div>
+        <div class="sc-desc">Scientifically reduce your Return-to-Origin rates, choose the best delivery aggregator for your pincode mix, and implement prepaid incentive strategies to cut losses.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>RTO audit &amp; root cause analysis</li><li>Aggregator comparison &amp; setup</li><li>Prepaid conversion strategy</li><li>WhatsApp order confirmation flow</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">Consulting</span><span class="sc-cta" onclick="openEnquiryModal('RTO Reduction Strategy')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+      <div class="service-card" data-category="growth" data-aos="fade-up">
+        <div class="sc-icon" style="background:linear-gradient(135deg,#FF6B00,#FF9B50);"><i class="fas fa-chess-knight"></i></div>
+        <div class="sc-title">Growth &amp; Marketing Strategy</div>
+        <div class="sc-desc">Full-funnel digital marketing across Meta (FB/Instagram), Google Ads, and SEO — data-driven campaigns designed for maximum ROAS and customer lifetime value.</div>
+        <div class="sc-includes"><p>What's Included</p><ul><li>Marketing audit &amp; strategy doc</li><li>Meta &amp; Google Ads management</li><li>Monthly performance reports</li><li>A/B testing &amp; CRO</li></ul></div>
+        <div class="sc-footer"><span class="sc-price">From ₹4,999/mo</span><span class="sc-cta" onclick="openEnquiryModal('Growth & Marketing Strategy')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+
+    </div>
+    <!-- END Grid -->
   </div>
+</section>
 
-  <!-- SERVICES SECTION -->
-  <section class="section" style="background:var(--bg);">
-    <div class="section-inner">
-      <!-- Filter Bar -->
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Services</button>
-        <button class="filter-btn" data-filter="tech"><i class="fas fa-code"></i> Tech & Engineering</button>
-        <button class="filter-btn" data-filter="ai"><i class="fas fa-robot"></i> AI & Automation</button>
-        <button class="filter-btn" data-filter="creative"><i class="fas fa-pen-nib"></i> Creative</button>
-        <button class="filter-btn" data-filter="growth"><i class="fas fa-chart-line"></i> Growth & Marketing</button>
-      </div>
-
-      <!-- Services Grid -->
-      <div class="services-full-grid" id="servicesGrid">
-
-        <!-- TECH & ENGINEERING -->
-        <div class="service-card" data-category="tech" data-aos="fade-up">
-          <div class="sc-icon"><i class="fab fa-shopify"></i></div>
-          <div class="sc-title">Shopify Store + Custom Theme</div>
-          <div class="sc-desc">High-converting B2B &amp; B2C Shopify stores built with premium custom themes, immersive
-            product displays, and optimized checkout flows.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Custom Shopify theme design</li>
-              <li>Product page optimization</li>
-              <li>Payment gateway integration</li>
-              <li>Mobile-first responsive build</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹4,999</span><span class="sc-cta"
-              onclick="openEnquiryModal('Shopify Store + Custom Theme')">Enquire Now <i
-                class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-        <div class="service-card" data-category="tech" data-aos="fade-up" data-aos-delay="100">
-          <div class="sc-icon"><i class="fas fa-cube"></i></div>
-          <div class="sc-title">3D Dynamic Website</div>
-          <div class="sc-desc">Immersive 3D websites with Three.js animations, interactive elements, and cinematic hero
-            sections that leave visitors speechless.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Three.js / WebGL 3D animations</li>
-              <li>GSAP scroll interactions</li>
-              <li>Responsive across all devices</li>
-              <li>Performance optimized</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹7,999</span><span class="sc-cta"
-              onclick="openEnquiryModal('3D Dynamic Website')">Enquire Now <i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-
-        <div class="service-card" data-category="tech" data-aos="fade-up" data-aos-delay="200">
-          <div class="sc-icon"><i class="fas fa-globe"></i></div>
-          <div class="sc-title">Informational Website</div>
-          <div class="sc-desc">Professional business websites that establish credibility, rank on Google, and convert
-            visitors into customers — fast and affordable.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Multi-page website design</li>
-              <li>SEO on-page optimization</li>
-              <li>Contact form &amp; WhatsApp widget</li>
-              <li>Google Analytics setup</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹2,999</span><span class="sc-cta"
-              onclick="openEnquiryModal('Informational Website')">Enquire Now <i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-
-        <div class="service-card" data-category="tech" data-aos="fade-up">
-          <div class="sc-icon"><i class="fas fa-store"></i></div>
-          <div class="sc-title">Online Store / Ecommerce Website</div>
-          <div class="sc-desc">Full-featured ecommerce websites with product catalogues, cart, payment integration, and
-            order management — not just Shopify.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Product catalogue &amp; filtering</li>
-              <li>Secure checkout integration</li>
-              <li>Order management backend</li>
-              <li>Inventory tracking</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹5,999</span><span class="sc-cta"
-              onclick="openEnquiryModal('Online Store / Ecommerce Website')">Enquire Now <i
-                class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-        <div class="service-card" data-category="tech" data-aos="fade-up" data-aos-delay="100">
-          <div class="sc-icon"><i class="fas fa-network-wired"></i></div>
-          <div class="sc-title">Custom API Integration &amp; Linking</div>
-          <div class="sc-desc">Make all your software communicate seamlessly — Shopify, ERP, CRM, WhatsApp, logistics
-            providers unified into one intelligent system.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>API documentation &amp; mapping</li>
-              <li>Webhook &amp; event triggers</li>
-              <li>Data sync &amp; transformation</li>
-              <li>Error monitoring &amp; alerts</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">Custom Pricing</span><span class="sc-cta"
-              onclick="openEnquiryModal('Custom API Integration')">Enquire Now <i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-
-        <!-- AI & AUTOMATION -->
-        <div class="service-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#00C837,#00f0ff);"><i
-              class="fas fa-headset"></i></div>
-          <div class="sc-title">AI Calling Agents</div>
-          <div class="sc-desc">24/7 intelligent voice AI agents that handle inbound support, qualify leads, follow up on
-            prospects, and close sales — without human intervention.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Custom voice &amp; persona setup</li>
-              <li>Lead scoring &amp; qualification</li>
-              <li>CRM data sync after every call</li>
-              <li>Call recordings &amp; analytics</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">Custom Pricing</span><span class="sc-cta"
-              onclick="openEnquiryModal('AI Calling Agents')">Enquire Now <i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-
-        <div class="service-card" data-category="ai" data-aos="fade-up">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#00C837,#00f0ff);"><i class="fas fa-cogs"></i>
-          </div>
-          <div class="sc-title">Business Process Automation</div>
-          <div class="sc-desc">Zero-touch automation using n8n, Zapier, and custom scripts to handle order routing,
-            invoice generation, inventory alerts, and shipping hands-free.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Workflow analysis &amp; mapping</li>
-              <li>n8n / automation build</li>
-              <li>Testing &amp; error handling</li>
-              <li>Documentation &amp; training</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹2,999</span><span class="sc-cta"
-              onclick="openEnquiryModal('Business Process Automation')">Enquire Now <i
-                class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-        <div class="service-card" data-category="ai" data-aos="fade-up" data-aos-delay="100">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#00C837,#00f0ff);"><i class="fas fa-book"></i>
-          </div>
-          <div class="sc-title">Zoho Full Setup</div>
-          <div class="sc-desc">Complete Zoho ecosystem deployment — Zoho Books (accounting), Inventory, CRM, Creator
-            (custom apps), and more — fully tailored to your operations.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Zoho Books &amp; Inventory config</li>
-              <li>Zoho CRM customization</li>
-              <li>Zoho Creator custom modules</li>
-              <li>User training &amp; documentation</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹3,999</span><span class="sc-cta"
-              onclick="openEnquiryModal('Zoho Full Setup')">Enquire Now <i class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-        <!-- CREATIVE & PRODUCTION -->
-        <div class="service-card" data-category="creative" data-aos="fade-up" data-aos-delay="200">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#9B00FF,#FF6BFF);"><i class="fas fa-camera"></i>
-          </div>
-          <div class="sc-title">Professional Product Photography</div>
-          <div class="sc-desc">Studio-quality product shoots for ecommerce brands — white background, lifestyle, and
-            styled shots that build trust and dramatically increase conversion rates.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Professional lighting setup</li>
-              <li>Post-production editing</li>
-              <li>Multiple angles &amp; variations</li>
-              <li>Ecommerce-ready file delivery</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹999</span><span class="sc-cta"
-              onclick="openEnquiryModal('Product Photography')">Enquire Now <i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-
-        <div class="service-card" data-category="creative" data-aos="fade-up">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#9B00FF,#FF6BFF);"><i class="fas fa-magic"></i>
-          </div>
-          <div class="sc-title">Logo Creation + Animation</div>
-          <div class="sc-desc">Distinctive, memorable logo design with professionally animated versions for social media
-            intros, website loading screens, and brand presentations.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>3 logo concept variations</li>
-              <li>Vector files (AI, SVG, PNG)</li>
-              <li>Animated logo (MP4/GIF/Lottie)</li>
-              <li>Brand colour &amp; font guide</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹999</span><span class="sc-cta"
-              onclick="openEnquiryModal('Logo Creation + Animation')">Enquire Now <i
-                class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-        <div class="service-card" data-category="creative" data-aos="fade-up" data-aos-delay="100">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#9B00FF,#FF6BFF);"><i
-              class="fas fa-layer-group"></i></div>
-          <div class="sc-title">3D Banners, Hero Sections &amp; Animations</div>
-          <div class="sc-desc">Visually stunning 3D product renders, animated hero backgrounds, and high-impact ad
-            banners that make your brand impossible to scroll past.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>3D scene modeling &amp; render</li>
-              <li>Animated hero section code</li>
-              <li>Social media banner variants</li>
-              <li>Video &amp; GIF export formats</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹1,499</span><span class="sc-cta"
-              onclick="openEnquiryModal('3D Banners & Hero Sections')">Enquire Now <i
-                class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-        <div class="service-card" data-category="creative" data-aos="fade-up" data-aos-delay="200">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#9B00FF,#FF6BFF);"><i
-              class="fas fa-paint-brush"></i></div>
-          <div class="sc-title">FB &amp; Instagram Graphics &amp; Marketing</div>
-          <div class="sc-desc">Scroll-stopping social media creatives, ad visuals, story templates, and carousel designs
-            — professionally crafted to match your brand identity.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Monthly creative calendar</li>
-              <li>Story + post design templates</li>
-              <li>Ad creative variations (A/B)</li>
-              <li>Reel &amp; motion graphics</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹2,499/mo</span><span class="sc-cta"
-              onclick="openEnquiryModal('FB & Instagram Marketing')">Enquire Now <i
-                class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-        <!-- GROWTH & MARKETING -->
-        <div class="service-card" data-category="growth" data-aos="fade-up">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#FF6B00,#FF9B50);"><i class="fas fa-box"></i>
-          </div>
-          <div class="sc-title">Ecommerce Channel Setup (Amazon, Meesho, FB)</div>
-          <div class="sc-desc">End-to-end marketplace setup and optimization on Amazon India, Meesho, Facebook Shops —
-            listings, pricing strategy, and growth hacks to dominate your category.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Seller account creation &amp; setup</li>
-              <li>Optimized product listings</li>
-              <li>Pricing &amp; catalog strategy</li>
-              <li>First 30-day growth plan</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹2,499</span><span class="sc-cta"
-              onclick="openEnquiryModal('Ecommerce Channel Setup')">Enquire Now <i
-                class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-        <div class="service-card" data-category="growth" data-aos="fade-up" data-aos-delay="100">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#FF6B00,#FF9B50);"><i
-              class="fab fa-whatsapp"></i></div>
-          <div class="sc-title">WhatsApp &amp; RCS Marketing</div>
-          <div class="sc-desc">Automated WhatsApp Business API campaigns with 98% open rates — order updates,
-            promotional blasts, abandoned cart recovery, and VIP customer nurturing.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>WhatsApp Business API setup</li>
-              <li>Automated flow builds</li>
-              <li>Broadcast campaign management</li>
-              <li>Analytics &amp; opt-out compliance</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹1,499/mo</span><span class="sc-cta"
-              onclick="openEnquiryModal('WhatsApp & RCS Marketing')">Enquire Now <i
-                class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-        <div class="service-card" data-category="growth" data-aos="fade-up" data-aos-delay="200">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#FF6B00,#FF9B50);"><i class="fas fa-truck"></i>
-          </div>
-          <div class="sc-title">RTO Reduction &amp; Delivery Aggregator Strategy</div>
-          <div class="sc-desc">Scientifically reduce your Return-to-Origin rates, choose the best delivery aggregator
-            for your pincode mix, and implement prepaid incentive strategies to cut losses.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>RTO audit &amp; root cause analysis</li>
-              <li>Aggregator comparison &amp; setup</li>
-              <li>Prepaid conversion strategy</li>
-              <li>WhatsApp order confirmation flow</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">Consulting</span><span class="sc-cta"
-              onclick="openEnquiryModal('RTO Reduction Strategy')">Enquire Now <i class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-
-        <div class="service-card" data-category="growth" data-aos="fade-up">
-          <div class="sc-icon" style="background:linear-gradient(135deg,#FF6B00,#FF9B50);"><i
-              class="fas fa-chess-knight"></i></div>
-          <div class="sc-title">Growth &amp; Marketing Strategy</div>
-          <div class="sc-desc">Full-funnel digital marketing across Meta (FB/Instagram), Google Ads, and SEO —
-            data-driven campaigns designed for maximum ROAS and customer lifetime value.</div>
-          <div class="sc-includes">
-            <p>What's Included</p>
-            <ul>
-              <li>Marketing audit &amp; strategy doc</li>
-              <li>Meta &amp; Google Ads management</li>
-              <li>Monthly performance reports</li>
-              <li>A/B testing &amp; CRO</li>
-            </ul>
-          </div>
-          <div class="sc-footer"><span class="sc-price">From ₹4,999/mo</span><span class="sc-cta"
-              onclick="openEnquiryModal('Growth & Marketing Strategy')">Enquire Now <i
-                class="fas fa-arrow-right"></i></span></div>
-        </div>
-
-      </div>
-      <!-- END Grid -->
+<!-- ENQUIRY MODAL -->
+<div class="modal-overlay" id="enquiryModal">
+  <div class="modal-box" style="max-width:560px;">
+    <div class="modal-header">
+      <h3 style="font-family:var(--font-head);font-weight:700;font-size:20px;color:var(--navy);">Quick Enquiry</h3>
+      <button class="modal-close" onclick="closeEnquiryModal()"><i class="fas fa-times"></i></button>
     </div>
-  </section>
-
-  <!-- ENQUIRY MODAL -->
-  <div class="modal-overlay" id="enquiryModal">
-    <div class="modal-box" style="max-width:560px;">
-      <div class="modal-header">
-        <h3 style="font-family:var(--font-head);font-weight:700;font-size:20px;color:var(--navy);">Quick Enquiry</h3>
-        <button class="modal-close" onclick="closeEnquiryModal()"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="modal-body" style="padding-top:20px;">
-        <form id="enquiryForm">
-          <input type="hidden" name="service" id="enquiryService" />
+    <div class="modal-body" style="padding-top:20px;">
+      <form id="enquiryForm">
+        <input type="hidden" name="service" id="enquiryService"/>
+        <div class="form-group">
+          <label class="form-label">Your Name *</label>
+          <input type="text" class="form-input" name="from_name" placeholder="Full Name" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Business Name *</label>
+          <input type="text" class="form-input" name="business_name" placeholder="Your Company" required/>
+        </div>
+        <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Your Name *</label>
-            <input type="text" class="form-input" name="from_name" placeholder="Full Name" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Business Name *</label>
-            <input type="text" class="form-input" name="business_name" placeholder="Your Company" required />
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Phone *</label>
-              <input type="tel" class="form-input" name="phone" placeholder="+91..." required />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email *</label>
-              <input type="email" class="form-input" name="from_email" placeholder="you@company.com" required />
-            </div>
+            <label class="form-label">Phone *</label>
+            <input type="tel" class="form-input" name="phone" placeholder="+91..." required/>
           </div>
           <div class="form-group">
-            <label class="form-label">Service Interested In</label>
-            <input type="text" class="form-input" name="service" id="enquiryServiceDisplay" readonly
-              style="background:var(--bg2);color:var(--blue);font-weight:600;" />
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-input" name="from_email" placeholder="you@company.com" required/>
           </div>
-          <div class="form-group">
-            <label class="form-label">Message</label>
-            <textarea class="form-input form-textarea" name="message"
-              placeholder="Tell us more about your requirement..."></textarea>
-          </div>
-          <button type="submit" class="btn-submit">Send Enquiry <i class="fas fa-paper-plane"></i></button>
-          <div class="form-success">✅ Sent! We'll contact you within 24 hours.</div>
-        </form>
-      </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service Interested In</label>
+          <input type="text" class="form-input" name="service" id="enquiryServiceDisplay" readonly style="background:var(--bg2);color:var(--blue);font-weight:600;"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-input form-textarea" name="message" placeholder="Tell us more about your requirement..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Enquiry <i class="fas fa-paper-plane"></i></button>
+        <div class="form-success">✅ Sent! We'll contact you within 24 hours.</div>
+      </form>
     </div>
   </div>
+</div>
 
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="cta-banner-inner">
-      <h2>Not Sure Which Service You Need?</h2>
-      <p>Talk to us. We'll analyze your business and recommend the right solution.</p>
-      <a href="/contact" class="btn-white">Book Free Consultation →</a>
-    </div>
-  </section>
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2>Not Sure Which Service You Need?</h2>
+    <p>Talk to us. We'll analyze your business and recommend the right solution.</p>
+    <a href="contact.html" class="btn-white">Book Free Consultation →</a>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-top">
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
       <div>
         <div class="footer-brand-name">
-          <img src="assets/img/logo.png" alt="Tinkal" onerror="this.style.display='none'" />
+          <img src="assets/img/logo.png" alt="Tinkal" onerror="this.style.display='none'"/>
           TINKAL
         </div>
-        <p class="footer-tagline">Your complete digital &amp; operational ecosystem. From ₹999, we build growth engines
-          for SMBs worldwide.</p>
+        <p class="footer-tagline">Your complete digital &amp; operational ecosystem. From ₹999, we build growth engines for SMBs worldwide.</p>
       </div>
 
       <div>
         <div class="footer-heading">Navigation</div>
-        <a href="/" class="footer-link">Home</a>
-        <a href="/services" class="footer-link">Services</a>
-        <a href="/projects" class="footer-link">Projects</a>
-        <a href="/contact" class="footer-link">Contact</a>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="services.html" class="footer-link">Services</a>
+        <a href="projects.html" class="footer-link">Projects</a>
+        <a href="contact.html" class="footer-link">Contact</a>
       </div>
 
       <div>
         <div class="footer-heading">Services</div>
-        <a href="/services" class="footer-link">Shopify Stores</a>
-        <a href="/services" class="footer-link">AI Calling Agents</a>
-        <a href="/services" class="footer-link">Business Automation</a>
-        <a href="/services" class="footer-link">WhatsApp Marketing</a>
-        <a href="/services" class="footer-link">Product Photography</a>
-        <a href="/services" class="footer-link">Zoho Setup</a>
+        <a href="services.html" class="footer-link">Shopify Stores</a>
+        <a href="services.html" class="footer-link">AI Calling Agents</a>
+        <a href="services.html" class="footer-link">Business Automation</a>
+        <a href="services.html" class="footer-link">WhatsApp Marketing</a>
+        <a href="services.html" class="footer-link">Product Photography</a>
+        <a href="services.html" class="footer-link">Zoho Setup</a>
       </div>
 
       <div>
         <div class="footer-heading">Connect</div>
-        <a href="/contact" class="footer-link" style="color:var(--cyan);font-weight:600;margin-bottom:16px;">Get Free
-          Audit &rarr;</a>
-        <a href="mailto:tinkalsolutions@gmail.com" class="footer-contact-item"><i
-            class="fas fa-envelope"></i>tinkalsolutions@gmail.com</a>
+        <a href="contact.html" class="footer-link" style="color:var(--cyan);font-weight:600;margin-bottom:16px;">Get Free Audit &rarr;</a>
+        <a href="mailto:tinkalsolutions@gmail.com" class="footer-contact-item"><i class="fas fa-envelope"></i>tinkalsolutions@gmail.com</a>
         <a href="tel:+919306817689" class="footer-contact-item"><i class="fas fa-phone"></i>+91 93068 17689</a>
-        <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="footer-contact-item"
-          target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp Us</a>
+        <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="footer-contact-item" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp Us</a>
         <a href="https://tinkal.in" class="footer-contact-item"><i class="fas fa-globe"></i>tinkal.in</a>
         <a href="admin/login.html" class="footer-link" style="opacity:0.3;font-size:11px;margin-top:16px;">Admin</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Tinkal. All rights reserved.</div>
-      <div class="footer-made">Built with ❤️ for ambitious SMBs worldwide</div>
-    </div>
-    </div>
-  </footer>
-
-  <!-- FLOATING WIDGETS -->
-  <div class="floating-widgets">
-    <a href="tel:+919306817689" class="float-btn float-call"><i class="fas fa-phone"></i><span class="tooltip">Call
-        Us</span></a>
-    <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="float-btn float-whatsapp"
-      target="_blank"><i class="fab fa-whatsapp"></i><span class="tooltip">WhatsApp</span></a>
+    <div class="footer-bottom"><div class="footer-copy">© 2026 Tinkal. All rights reserved.</div><div class="footer-made">Built with ❤️ for ambitious SMBs worldwide</div></div>
   </div>
+</footer>
 
-  <script src="assets/js/firebase-config.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script>
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-    window.addEventListener('DOMContentLoaded', function () {
-      initServiceFilter();
-      initContactForm('enquiryForm');
-      // Sync hidden+display service field
-      const hiddenSvc = document.getElementById('enquiryService');
-      const displaySvc = document.getElementById('enquiryServiceDisplay');
-      if (hiddenSvc && displaySvc) {
-        const observer = new MutationObserver(() => { displaySvc.value = hiddenSvc.value; });
-        observer.observe(hiddenSvc, { attributes: true, childList: true, characterData: true });
-        // Also override openEnquiryModal to sync display field
-        const orig = window.openEnquiryModal;
-        window.openEnquiryModal = function (name) { orig(name); displaySvc.value = name || ''; };
-      }
-      // URL param filter
-      const params = new URLSearchParams(window.location.search);
-      const cat = params.get('cat');
-      if (cat) {
-        const btn = document.querySelector(`.filter-btn[data-filter="${cat}"]`);
-        if (btn) btn.click();
-      }
-    });
-  </script>
+<!-- FLOATING WIDGETS -->
+<div class="floating-widgets">
+  <a href="tel:+919306817689" class="float-btn float-call"><i class="fas fa-phone"></i><span class="tooltip">Call Us</span></a>
+  <a href="https://wa.me/919306817689?text=I%20need%20solution%20for%20my%20business" class="float-btn float-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span class="tooltip">WhatsApp</span></a>
+</div>
+
+<script src="assets/js/firebase-config.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+  window.addEventListener('DOMContentLoaded', function() {
+    initServiceFilter();
+    initContactForm('enquiryForm');
+    // Sync hidden+display service field
+    const hiddenSvc = document.getElementById('enquiryService');
+    const displaySvc = document.getElementById('enquiryServiceDisplay');
+    if (hiddenSvc && displaySvc) {
+      const observer = new MutationObserver(() => { displaySvc.value = hiddenSvc.value; });
+      observer.observe(hiddenSvc, { attributes: true, childList: true, characterData: true });
+      // Also override openEnquiryModal to sync display field
+      const orig = window.openEnquiryModal;
+      window.openEnquiryModal = function(name) { orig(name); displaySvc.value = name || ''; };
+    }
+    // URL param filter
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+    if (cat) {
+      const btn = document.querySelector(`.filter-btn[data-filter="${cat}"]`);
+      if (btn) btn.click();
+    }
+  });
+</script>
 </body>
-
 </html>
